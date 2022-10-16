@@ -1,0 +1,107 @@
+video {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: -1;    
+}
+.logo{
+    /* color: white; */
+    color: #444;
+    text-shadow: 
+      1px 0px 1px #ccc, 0px 1px 1px #eee, 
+      /* 2px 1px 1px #ccc, 1px 2px 1px #eee, */
+      /* 3px 2px 1px #ccc, 2px 3px 1px #eee, */
+      /* 4px 3px 1px #ccc, 3px 4px 1px #eee,
+      5px 4px 1px #ccc, 4px 5px 1px #eee,
+      6px 5px 1px #ccc, 5px 6px 1px #eee, */
+      4px 3px 0px #ccc;
+}
+
+.hero-container {
+    /* background: url('../images/fromthesky.jpeg') center center/cover no-repeat; */
+    height: 100vh;
+    width: 100%;
+    color: blueviolet;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 0 0 1000px rgba(0,0,0,0.2);
+    object-fit: contain;
+}
+
+.hero-container > h1 {
+    /* color: blueviolet; */
+    font-size: 80px;
+    margin-top: -100px;
+    font-weight: 700;
+    /* background: #0e8dbc; */
+    color: white;
+    text-shadow: 0 1px 0 #ccc,
+                 0 2px 0 #c9c9c9,
+                 0 3px 0 #bbb,
+                 0 4px 0 #b9b9b9,
+                 0 5px 0 #aaa,
+                 0 6px 1px rgba(0,0,0,.1),
+                 0 0 5px rgba(0,0,0,.1),
+                 0 1px 3px rgba(0,0,0,.3),
+                 0 3px 5px rgba(0,0,0,.2),
+                 0 5px 10px rgba(0,0,0,.25),
+                 0 10px 10px rgba(0,0,0,.2),
+                 0 20px 20px rgba(0,0,0,.15);
+}
+
+.hero-container > p {
+    margin-top: 8px;
+    color: blueviolet;
+    font-size: 32px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.hero-btns {
+    margin-top: 32px;
+}
+
+.hero-btns .btn {
+    margin: 6px;
+}
+
+.fa-play-circle {
+    margin-left: 4px;
+}
+
+@media screen and (max-width: 960px){
+    .hero-container > h1 {
+        font-size: 70px;
+        margin-top: -150px;
+    }
+}
+
+@media screen and (max-width: 768px){
+    
+    
+    .hero-container > h1 {
+        font-size: 50px;
+        margin-top: -100px;
+        width: 100%;
+    }
+
+    .hero-container > p {
+        font-size: 30px;        
+    }
+
+    .btn-mobile {
+        display: block;
+        margin-right: 22px;
+        text-decoration: none;
+    }
+
+    #home {
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+   }
+}
