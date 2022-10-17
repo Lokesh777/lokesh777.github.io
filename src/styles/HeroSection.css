@@ -5,6 +5,7 @@ video {
     position: fixed;
     z-index: -1;    
 }
+/* ****************************************************************** */
 .logo{
     /* color: white; */
     color: #444;
@@ -16,8 +17,11 @@ video {
       5px 4px 1px #ccc, 4px 5px 1px #eee,
       6px 5px 1px #ccc, 5px 6px 1px #eee, */
       4px 3px 0px #ccc;
+
+      
 }
 
+/* ************************************************************* */
 .hero-container {
     /* background: url('../images/fromthesky.jpeg') center center/cover no-repeat; */
     height: 100vh;
@@ -50,23 +54,103 @@ video {
                  0 5px 10px rgba(0,0,0,.25),
                  0 10px 10px rgba(0,0,0,.2),
                  0 20px 20px rgba(0,0,0,.15);
+                 
+                 
 }
 
 .hero-container > p {
     margin-top: 8px;
     color: blueviolet;
-    font-size: 32px;
+    font-size: 36px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    /* font-family: 'Baloo Tamma', cursive; */
+    color: #fff;
+    letter-spacing: 0.2rem;
+    text-shadow: 0 1px 0 #ccc,
+                 0 2px 0 #c9c9c9,
+                 0 3px 0 #bbb,
+                 0 4px 0 #b9b9b9,
+                 0 5px 0 #aaa,
+                 0 6px 1px rgba(0,0,0,.1),
+                 0 0 5px rgba(0,0,0,.1),
+                 0 1px 3px rgba(0,0,0,.3),
+                 0 3px 5px rgba(0,0,0,.2),
+                 0 5px 10px rgba(0,0,0,.25),
+                 0 10px 10px rgba(0,0,0,.2),
+                 0 20px 20px rgba(0,0,0,.15);
 }
 
 .hero-btns {
     margin-top: 32px;
+    
+    
 }
 
 .hero-btns .btn {
     margin: 6px;
 }
+/* ***************************** */
+.hero-btns {
+    /* width: 220px;
+    height: 50px; */
+    border: none;
+    outline: none;
+    /* color: #fff; */
+    background: blueviolet;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
 
+.hero-btns:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.hero-btns:active {
+    color: #000
+}
+
+.hero-btns:active:after {
+    background: transparent;
+}
+
+.hero-btns:hover:before {
+    opacity: 1;
+}
+
+.hero-btns:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+/* *************************************** */
 .fa-play-circle {
     margin-left: 4px;
 }

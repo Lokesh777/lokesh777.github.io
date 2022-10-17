@@ -63,7 +63,7 @@ const NavBarContainer = ({ children }) => {
   return (
     <Flex
       boxShadow='dark-lg' p='6' 
-      bg='purple.500'
+      bg='blueviolet'
       as="nav"
       align="center"
       justify="space-between"
