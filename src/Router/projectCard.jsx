@@ -30,7 +30,7 @@ function Cards() {
                             <CardItem
                                 // img src={evolvejournal}
                                 text='A progressive web app! This group project fitness
-                                journal uses a Node + Express server with a mySQL database + a Sequelize ORM and an MVC design paradigm. This application is deployed on
+                                journal uses a Node  + a Sequelize ORM and an MVC design paradigm. This application is deployed on
                                 Heroku.'
                                 label='Evolve Fitness Journal'
                                 url='https://github.com/onomatopoetica/evolve'
@@ -41,8 +41,7 @@ function Cards() {
                                 // img src={codeqz}
                                 text='Students have 75 seconds to
                                 take a JavaScript quiz testing their knowledge of the
-                                fundamentals. The app stores high scores enabling students to gauge their
-                                progress compared to their
+                                fundamentals. 
                                 peers. Deployed on GitHub.'
                                 label='JavaScript Code Quiz'
                                 url='https://github.com/onomatopoetica/code-quiz'
