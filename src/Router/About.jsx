@@ -1,21 +1,57 @@
-import '../styles/card.css';
+import styles from "../styles/About.module.css";
+import { Fade } from "react-awesome-reveal";
+import { Button, Flex, Text } from "@chakra-ui/react";
 
-export default function About(){
+import { FaDownload } from "react-icons/fa";
 
 
+export default function About() {
 
-    return (
-        <>
-          
-        <div id='about' className='intro'>
-                <h1 className='summary__head'>ABOUT</h1>
-                {/* <img className='jen' src={jen}></img> */}
-                <p className='summary__intro'>HELLO!, I'm Lokesh Kumar Bairwa. Thank you for visiting my portfolio. I am a software engineer with a passion for creating beautiful interfaces. I am also a self-proclaimed nerd. I have always enjoyed working in technology for its dynamic, ever-evolving landscape. </p>
-                
-                <p className='summary__intro'> As a technical project manager I managed many complex projects with talented teams of UX/UI designers and developers. We created everything from HMIs for industrial machines, to GUIs for remote monitoring devices, to user experience flows for client onboarding applications. I am energized by environments in which I can combine creativity and problem solving!</p>
+  const onButtonClick = () => {
+    
+    fetch('AmanMateResume.pdf').then(response => {
+        response.blob().then(blob => {
+        
+            const fileURL = window.URL.createObjectURL(blob);
+            // Setting various property values
+            let alink = document.createElement('a');
+            alink.href = fileURL;
+            alink.download = 'Aman Mate Resume.pdf';
+            alink.click();
+        })
+    })
+}
 
-                <p className='summary__intro'>When I'm not coding I love to scuba dive in the Caribbean and train for half-marathons.</p>
-            </div>
-        </>
-    )
+
+  return (
+    <div className={styles.rootCont} id="about">
+      <Fade bottom>
+        <Text className={styles.headingH1}  fontSize={{ base: "xl", md: "3xl" }}>About</Text>
+        <div className={styles.mainCont}>
+          <div className={styles.profilePicCont}>
+            <img
+              src="https://avatars.githubusercontent.com/u/101393657?v=4"
+              alt=""
+              className={styles.profilePic}
+            />
+          </div>
+          <div>
+            <h2>
+              I am <span>Lokesh Kumar Bairwa</span>
+            </h2>
+
+            <p>
+              A web developer with a vast array of knowledge in many different
+              front end and backend languages, responsive frameworks, databases,
+              and best code practices. Look forward to using my skills for
+              gaining more experience.
+            </p>
+            <br/>
+          <Flex> <Text color={"#383874"} >Resume Download Here -</Text> <Button className= {styles.downloadBtn}  variant='outline' ><FaDownload onClick={()=>onButtonClick()} /></Button>  </Flex>
+           
+          </div>
+        </div>
+      </Fade>
+    </div>
+  );
 }

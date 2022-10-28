@@ -3,18 +3,18 @@
     background: #fff;
   }
   
-.cards >  h1 {
+.headingH1{
     text-align: center;
     margin-top: 40px;
     font-weight: 800;
     font-size: 35px;
     /* color: blueviolet; */
-    color: #fff;
+   color:#383874;
     letter-spacing: 0.2rem;
-    text-shadow: -2px -2px 0px #888,
+    /* text-shadow: -2px -2px 0px #888,
                    4px 4px 0px #888,
                    7px 7px 0px #888;
-                 
+                  */
                  
   }
   .summary__head{
@@ -124,6 +124,7 @@
     flex: 1;
     margin: 0 1rem;
     border-radius: 10px; 
+    color:#383874;
   }
   
   .cards__item__pic-wrap {
@@ -148,7 +149,7 @@
     font-size: 12px;
     font-weight: 700;
     color: #fff;
-    background-color: rgb(102, 205, 223);
+    background-color: blueviolet;
     box-sizing: border-box;
   }
   
@@ -165,6 +166,7 @@
     max-height: 100%;
     object-fit: cover;
     transition: all 0.2s linear;
+   
   }
   
   .cards__item__img:hover {
@@ -176,7 +178,8 @@
   }
   
   .cards__item__text {
-    color: rgb(102, 205, 223);
+    color: blueviolet;
+    
     font-size: 18px;
     font-weight: 400;
     line-height: 24px;

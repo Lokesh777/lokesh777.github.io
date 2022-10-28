@@ -9,7 +9,7 @@ function HeroSection() {
     <div id='home' className='hero-container'>
       <h1>Lokesh Kumar Bairwa</h1>
       <p>Full Stack Web Develper</p>
-      <a href='#projects' className='hero-btns'>
+      <a href='#contact' className='hero-btns'>
         <Button className='btns' buttonStyle='btn--outline' buttonSize='btn--large'>
           CONTACT ME
         </Button>

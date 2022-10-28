@@ -1,0 +1,21 @@
+/* .gitBox{
+    border: 1px solid;
+    
+} */
+.headingH1 {
+    text-align: center;
+    margin-top: 40px;
+    font-weight: 800;
+    font-size: 35px;
+    color:#383874;
+    letter-spacing: 0.2rem;
+  }
+.Github {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+   color: blueviolet;
+  }
+  
