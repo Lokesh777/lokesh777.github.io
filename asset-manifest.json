@@ -1,19 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.fc0f5d13.css",
-    "main.js": "/static/js/main.ec056b10.js",
+    "main.css": "/static/css/main.a500e99d.css",
+    "main.js": "/static/js/main.468cec3e.js",
     "static/js/787.78ef02f9.chunk.js": "/static/js/787.78ef02f9.chunk.js",
-    "static/media/lyst.png": "/static/media/lyst.4ac556d717bc249764ee.png",
-    "static/media/pharmaEasy.png": "/static/media/pharmaEasy.e208492615971b5f355f.png",
-    "static/media/stopwatch.png": "/static/media/stopwatch.754c8f7011a73dc7c97d.png",
-    "static/media/littleFog.png": "/static/media/littleFog.3f4677545c3790793ef1.png",
     "index.html": "/index.html",
-    "main.fc0f5d13.css.map": "/static/css/main.fc0f5d13.css.map",
-    "main.ec056b10.js.map": "/static/js/main.ec056b10.js.map",
+    "main.a500e99d.css.map": "/static/css/main.a500e99d.css.map",
+    "main.468cec3e.js.map": "/static/js/main.468cec3e.js.map",
     "787.78ef02f9.chunk.js.map": "/static/js/787.78ef02f9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.fc0f5d13.css",
-    "static/js/main.ec056b10.js"
+    "static/css/main.a500e99d.css",
+    "static/js/main.468cec3e.js"
   ]
 }
