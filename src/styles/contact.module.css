@@ -1,0 +1,10 @@
+.submitBtn{
+  margin-top: 2rem;
+}
+.submitBtn:hover{
+  color:#080823;
+  background-color: aliceblue;
+  box-shadow: 1px 1px 17px 5px blueviolet;
+-webkit-box-shadow: 1px 1px 17px 5px blueviolet;
+-moz-box-shadow: 1px 1px 17px 5px rgb(116, 54, 174);
+}

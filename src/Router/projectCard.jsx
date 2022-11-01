@@ -1,82 +1,85 @@
-import React from 'react';
-import CardItem from './ProjectCarditem';
-import '../styles/card.css';
-import { Fade } from "react-awesome-reveal";
-import littleFog from "../images/littleFog.png"
-import stopwatch from "../images/stopwatch.png"
-import pharmaEasy from "../images/pharmaEasy.png"
-import lyst from "../images/lyst.png"
 
-function Cards() {
+import { SiChakraui, SiCss3, SiReact } from 'react-icons/si';
+ 
+  import styles from "../styles/Project.module.css";
+   
+  import { Fade } from "react-awesome-reveal";
+  import { Text } from "@chakra-ui/react";
+import { ProjectCard } from './ProjectCarditem.jsx';
+import { TiHtml5 } from "react-icons/ti";
+import { TbBrandJavascript} from "react-icons/tb";
+
+const projects = [
+    {
+       
+      label:'Stopwatch App',      
+      img: "stopwatch.png",
+      link: "https://stopwatch-ehclrh1le-lokesh777.vercel.app/",
+      git: "https://github.com/masai-course/Lokesh_fw18_0979/tree/master/unit-4/sprint-3/day-1/assignments/stopwatch",
+      about:
+        "A stopwatch is a timepiece designed to measure the amount of time that elapses between its activation and deactivation.",
+      stacks: [
+        <SiReact className={styles.stackIcon} />,
+        <SiChakraui className={styles.stackIcon} />,
+      ],
+    },
+    {
+      label:'TrackingTime Clone App',
+      img: "littleFog.png",
+      link: "https://little-fog-1256.vercel.app/",
+      git: "https://github.com/Lokesh777/little-fog-1256",
+      about:
+        "TrackingTime is a collaborative, cloud-based time tracking service that helps businesses of any size manage their projects, track working times and measure productivity.",
+      stacks: [
+        <SiReact className={styles.stackIcon} />,
+        <SiChakraui className={styles.stackIcon} />,
+      ],
+    },
+    {
+      label:'PharmEasy Clone Website',
+      img: "pharmaEasy.png",
+      link: "https://lucent-duckanoo-8aee96.netlify.app",
+      git: "https://github.com/VinayPathania/Team-Spartans.git",
+      about:
+        "This is e-commerce website used for buying and supplying medicine across the world.This was a team project where I with my teammates had created.My task was to do Login and Signup functionality and help in the css part. ",
+      stacks: [
+        <TiHtml5 className={styles.stackIcon} />,
+        <TbBrandJavascript className={styles.stackIcon} />,
+        <SiCss3 className={styles.stackIcon} />,
+      ],
+    },
+    {
+      label:'Lyst Clone Website',
+      img: "lyst.png",
+      link: "https://62aec458d002661172622f35--delightful-biscochitos-b2f2b6.netlify.app/",
+      git: "https://github.com/Raj-Mandloii/lyst_project",
+      about:
+        "Lyst is a fashion technology company, and premium shopping app.",
+      stacks: [
+        <TbBrandJavascript className={styles.stackIcon} />,
+        <TiHtml5 className={styles.stackIcon} />,
+        <SiCss3 className={styles.stackIcon} />,
+      ],
+    },
+  ];
+
+ 
+  export function ProjectsSection() {
     return (
-
-        <>
-            
-
-            <div id='projects' className='cards'>
+      <div className={styles.projectsSectionCont} id="projects">
+        <Fade bottom>
+          <Text className={styles.headingH1}  as={"h1"} fontSize={{ base: "xl", md: "3xl" }} mb={8}>
+            Projects
+          </Text>
+        </Fade>
+        <div className={styles.projectGrid}>
+          {projects.map((project) => (
             <Fade bottom>
-                <h1 className='headingH1'>PROJECTS</h1>
-                
-
-                <div className='cards__container'>
-                    <div className='cards__wrapper'>
-                        <ul className='cards__items'>
-                            <CardItem
-                                img src={stopwatch}
-                                text='A stopwatch is a timepiece designed to measure the amount of time that elapses between its activation and deactivation.'
-                                label='Stopwatch App'
-                                url='https://github.com/masai-course/Lokesh_fw18_0979/tree/master/unit-4/sprint-3/day-1/assignments/stopwatch'
-                                appURL='https://stopwatch-ehclrh1le-lokesh777.vercel.app/'
-                            />
-
-                            <CardItem
-                                img src={pharmaEasy}
-                                text='PharmEasy is a consumer healthcare “super app” that provides consumers with on-demand,
-                                 home delivered access to a wide range of prescription'
-                                label='PharmEasy Clone Website'
-                                url='https://github.com/VinayPathania/Clone-PharmEasy'
-                                appURL='https://cute-jalebi-e15c39.netlify.app/'
-                            />
-                        </ul>
-                        <ul className='cards__items'>
-                            <CardItem
-                                img src={littleFog}
-                                text="TrackingTime is a collaborative, cloud-based time tracking service that helps businesses of any size manage their projects, track working times and measure productivity."
-                                label='TrackingTime App'
-                                url='https://github.com/Lokesh777/little-fog-1256'
-                                appURL='https://little-fog-1256.vercel.app/'
-                            />
-                            <CardItem
-                                img src={lyst}
-                                text='Lyst is a fashion technology company, and premium shopping app.'
-                                label='Lyst Clone Website'
-                                url='https://github.com/Raj-Mandloii/lyst_project'
-                                appURL='https://62aec458d002661172622f35--delightful-biscochitos-b2f2b6.netlify.app/'
-                            />
-                        </ul>
-                        {/* <ul className='cards__items'>
-                            <CardItem
-                                // img src={fitness}
-                                text='A fitness (workout) tracker incorporates a Mongo database with a Mongoose schema and routing with Express. The app uses MongoDB Atlas cloud database to store user data. The app is deployed on Heroku.'
-                                label='Fitness Tracker'
-                                url='https://github.com/onomatopoetica/workout-tracker'
-                                appURL='https://immense-inlet-26212.herokuapp.com/'
-                            />
-                            <CardItem
-                                // img src={traveltracker}
-                                text='A responsive budget tracker progressive web app (PWA) with offline functionality. Deposits and expenses are stored in a MongoDB Atlas cloud database. The app is deployed on Heroku.'
-                                label='Travel Budget'
-                                url='https://github.com/onomatopoetica/budget-tracker'
-                                appURL='https://agile-river-83351.herokuapp.com/'
-                            />
-                        </ul> */}
-                    </div>
-                </div>
-
-                </Fade>
-            </div>
-        </>
-    )
-}
-
-export default Cards
+              <ProjectCard {...project} />
+            </Fade>
+          ))}
+        </div>
+      </div>
+    );
+  }
+  

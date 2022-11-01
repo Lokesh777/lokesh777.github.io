@@ -9,14 +9,14 @@ export default function About() {
 
   const onButtonClick = () => {
     
-    fetch('AmanMateResume.pdf').then(response => {
+    fetch('LokeshKumarBairwa.pdf').then(response => {
         response.blob().then(blob => {
         
             const fileURL = window.URL.createObjectURL(blob);
             // Setting various property values
             let alink = document.createElement('a');
             alink.href = fileURL;
-            alink.download = 'Aman Mate Resume.pdf';
+            alink.download = 'Lokesh Kumar Bairwa.pdf';
             alink.click();
         })
     })
@@ -26,7 +26,7 @@ export default function About() {
   return (
     <div className={styles.rootCont} id="about">
       <Fade bottom>
-        <Text className={styles.headingH1}  fontSize={{ base: "xl", md: "3xl" }}>About</Text>
+        <Text className={styles.headingH1}   fontSize={{ base: "xl", md: "3xl" }}>About</Text>
         <div className={styles.mainCont}>
           <div className={styles.profilePicCont}>
             <img

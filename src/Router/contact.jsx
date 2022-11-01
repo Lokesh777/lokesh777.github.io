@@ -1,10 +1,10 @@
-import {
+  import {
     Container,
     Flex,
     Box,
     Heading,
     Text,
-    // IconButton,
+    IconButton,
     Button,
     VStack,
     HStack,
@@ -18,22 +18,44 @@ import {
     Textarea,
     Link,
   } from '@chakra-ui/react';
-  
   import {
     MdPhone,
     MdEmail,
     MdLocationOn,
-    // MdFacebook,
     MdOutlineEmail,
   } from 'react-icons/md';
-  import {  BsPerson } from 'react-icons/bs';
-import { GrGithub, GrLinkedin, GrTwitter } from 'react-icons/gr';
-import '../styles/Footer.css';  
+  import { BsGithub,BsLinkedin, BsPerson } from 'react-icons/bs';
+  import emailjs from "@emailjs/browser"
+  import Swal from 'sweetalert2'
+  import styles from "../styles/contact.module.css"
+  
+  export default function ContactForm() {
 
-  export default function contact() {
+    const handleOnSubmit = (e) => {
+        e.preventDefault()
+       
+        emailjs.sendForm('service_6xirjde', 'template_1blpeve', e.target, 'g7jv5M7A1ijQAKAjq').then(
+          (result) => {
+            console.log(result.text)
+            Swal.fire({
+              icon: 'success',
+              title: 'Message Sent Successfully',
+            })
+          },
+          (error) => {
+            console.log(error.text)
+            Swal.fire({
+              icon: 'error',
+              title: 'Ooops, something went wrong',
+              text: error.text,
+            })
+          },
+        )
+        e.target.reset()
+      }
     return (
-      <div id='contact'>
-<Container bg="blueviolet" maxW="full" mt={0} centerContent overflow="hidden">
+        <div id='contact'>
+      <Container bg="blueviolet" maxW="full" mt={0} centerContent overflow="hidden">
         <Flex>
           <Box
             bg="blueviolet"
@@ -57,19 +79,19 @@ import '../styles/Footer.css';
                           width="200px"
                           variant="ghost"
                           color="#DCE2FF"
-                          _hover={{ border: '2px solid #1C6FEB' }}
+                          _hover={{ border: '2px solid #0D74FF' }}
                           leftIcon={<MdPhone color="#1970F1" size="20px" />}>
                           +91-8448238707
                         </Button>
                         <Button
                           size="md"
                           height="48px"
-                          width="200px"
+                          width="250px"
                           variant="ghost"
                           color="#DCE2FF"
-                          _hover={{ border: '2px solid #1C6FEB' }}
+                          _hover={{ border: '2px solid #0D74FF' }}
                           leftIcon={<MdEmail color="#1970F1" size="20px" />}>
-                          lokeshdevgan777@gmail.com
+                         lokeshdevgan777@gmail.com
                         </Button>
                         <Button
                           size="md"
@@ -77,7 +99,7 @@ import '../styles/Footer.css';
                           width="200px"
                           variant="ghost"
                           color="#DCE2FF"
-                          _hover={{ border: '2px solid #1C6FEB' }}
+                          _hover={{ border: '2px solid #0D74FF' }}
                           leftIcon={<MdLocationOn color="#1970F1" size="20px" />}>
                           Bundi-Rajasthan, India
                         </Button>
@@ -88,42 +110,42 @@ import '../styles/Footer.css';
                       spacing={5}
                       px={5}
                       alignItems="flex-start">
-                          <Link _hover={{ bg: '#0D74FF' }}   className='social-icon-link github' href='https://github.com/Lokesh777' isExternal >
-                            <GrGithub size='30' />
-                        </Link>
-                        
-                        <Link _hover={{ bg: '#0D74FF' }}  className='social-icon-link twitter' href='https://twitter.com/lkdevgan777?t=DA9GwpQHbc-SCMDAgdKn0Q&s=09' isExternal >
-                            <GrTwitter  size='30' />
-                        </Link>
+                    
                       
-                        <Link  _hover={{ bg: '#0D74FF' }} className='social-icon-link linkedin' href='https://www.linkedin.com/in/lokeshkumar777/' isExternal >
-                            <GrLinkedin size='30' />
-                        </Link>
-
-                      {/* <IconButton
-                        aria-label="facebook"
-                        variant="ghost"
-                        size="lg"
-                        isRound={true}
-                        _hover={{ bg: '#0D74FF' }}
-                        icon={<MdFacebook size="28px" />}
-                      />
-                      <IconButton
+                    
+                       <Link _hover={{ bg: '#0D74FF' }}   className='social-icon-link github' href='https://github.com/Lokesh777' isExternal >
+                       <IconButton
                         aria-label="github"
                         variant="ghost"
                         size="lg"
                         isRound={true}
                         _hover={{ bg: '#0D74FF' }}
-                        icon={<BsGithub size="28px" />}
+                        icon={<BsGithub size="32px" />}
                       />
-                      <IconButton
-                        aria-label="discord"
+                        </Link>
+                        
+                        <Link _hover={{ bg: '#0D74FF' }}  className='social-icon-link twitter' href='mailto:lokeshdevgan777@gmail.com' isExternal >
+                        <IconButton
+                        aria-label="Email"
                         variant="ghost"
                         size="lg"
                         isRound={true}
                         _hover={{ bg: '#0D74FF' }}
-                        icon={<BsDiscord size="28px" />}
-                      /> */}
+                        icon={<MdEmail size="30px" />}
+                      />
+                        </Link>
+                      
+                        <Link  _hover={{ bg: '#0D74FF' }} className='social-icon-link linkedin' href='https://www.linkedin.com/in/lokeshkumar777/' isExternal >
+                        <IconButton
+                          aria-label="LinkedIn"
+                          variant="ghost"
+                          size="lg"
+                          isRound={true}
+                          _hover={{ bg: '#0D74FF' }}
+                          icon={<BsLinkedin size="28px" />}
+                        />
+                        </Link>
+
                     </HStack>
                   </Box>
                 </WrapItem>
@@ -131,47 +153,50 @@ import '../styles/Footer.css';
                   <Box bg="white" borderRadius="lg">
                     <Box m={8} color="#0B0E3F">
                       <VStack spacing={5}>
+                        <form onSubmit={handleOnSubmit}>
                         <FormControl id="name">
-                          <FormLabel>Your Name</FormLabel>
-                          <InputGroup borderColor="#E0E1E7">
+                          <FormLabel color={"blueviolet"}>Your Name</FormLabel>
+                          <InputGroup borderColor="blueviolet">
                             <InputLeftElement
                               pointerEvents="none"
-                              children={<BsPerson color="gray.800" />}
+                              children={<BsPerson color={"blueviolet"} />}
                             />
-                            <Input type="text" size="md" />
+                            <Input type="text" name="your_name" size="md" />
                           </InputGroup>
                         </FormControl>
                         <FormControl id="name">
-                          <FormLabel>Mail</FormLabel>
-                          <InputGroup borderColor="#E0E1E7">
+                          <FormLabel color={"blueviolet"}>Mail</FormLabel>
+                          <InputGroup borderColor="blueviolet">
                             <InputLeftElement
                               pointerEvents="none"
-                              children={<MdOutlineEmail color="gray.800" />}
+                              children={<MdOutlineEmail color={"blueviolet"} />}
                             />
-                            <Input type="text" size="md" />
+                            <Input type="text" name="your_email" size="md" />
                           </InputGroup>
                         </FormControl>
                         <FormControl id="name">
-                          <FormLabel>Message</FormLabel>
+                          <FormLabel color={"blueviolet"}>Message</FormLabel>
                           <Textarea
-                            borderColor="gray.300"
+                            borderColor="blueviolet"
                             _hover={{
                               borderRadius: 'gray.300',
                             }}
+                            name="your_message"
                             placeholder="message"
                           />
                         </FormControl>
                         <FormControl id="name" float="right">
                           <Button
+                          className={styles.submitBtn}
+                          type="submit"
                             variant="solid"
                             bg="blueviolet"
                             color="white"
-                            _hover={{ boxShadow:"1px 1px 17px 5px blueviolet",
-                            backgroundColor:"white",color:"black"  
-                            }}>
+                            _hover={{}}>
                             Send Message
                           </Button>
                         </FormControl>
+                        </form>
                       </VStack>
                     </Box>
                   </Box>

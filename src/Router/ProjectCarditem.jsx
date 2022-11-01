@@ -1,29 +1,41 @@
-import React from 'react';
-// import { Link } from 'react-router-dom';
-import '../styles/card.css';
+import styles from "../styles/Project.module.css"
+import LinkIcon from "@mui/icons-material/Link"
+import GitHubIcon from "@mui/icons-material/Link"
+import {Fade} from "react-awesome-reveal"
+export function ProjectCard({label, img, git, link, stacks, about }) {
+    // console.log(name)
+  return (
+    <>
+      <div className={styles.projectCont}>
+        <img src={img} alt="" className={styles.image} />
+        <p style={{ color:"blueviolet", fontSize: "25px", fontWeight: "400", margin: "5px 0 0 0" }}>
+          {label}
+        </p>
+        <div className={styles.stacksDiv2}>{stacks.map((stack) => stack)}</div>
 
-function CardItem(props) {
-    return (
-        <>
+        <div className={styles.linkCont}>
+          <a href={git} rel="noreferrer" target="_blank">
+            <div className={styles.linkDiv}>
+              <GitHubIcon />
+              <p>Code</p>
+            </div>
+          </a>
+          <div className={styles.stacksDiv}>{stacks.map((stack) => stack)}</div>
 
-            <li className='cards__item'>
-                <div className='cardItemWrapper'>
-                    <figure className='cards__item__pic-wrap' data-category={props.label}>
-                        <img src={props.src} alt='project' className='cards__item__img' />
-                    </figure>
+          <a href={link} rel="noreferrer" target="_blank">
+            <div className={styles.linkDiv}>
+              <LinkIcon />
+              <p>Demo</p>
+            </div>
+          </a>
+        </div>
 
-                    <div className='cards__item__info'>
-                        {/* eslint-disable-next-line */}
-                        <h5  className='cards__item__text'>{props.text}</h5>
-                        <p  color='blueviolet'></p>
-                        <a className='github' href={props.url} target='_blank'>GitHub</a>
-
-                        <a className='app' href={props.appURL} target='_blank'> Live App</a>
-                    </div>
-                </div>
-            </li>
-        </>
-    )
+        <div className={styles.projInfo}>
+          <Fade bottom>
+            <p>{about}</p>
+          </Fade>
+        </div>
+      </div>
+    </>
+  )
 }
-
-export default CardItem;
