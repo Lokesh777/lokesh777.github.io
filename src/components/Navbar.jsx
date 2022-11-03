@@ -51,7 +51,7 @@ export default function NavbarPage() {
          height={"4.5rem"}
         //  bg='blueviolet'
         bg={useColorModeValue("blueviolet", "#eaf8f8")}
-        px={4}
+        // px={4}
         className={styles.mainBox}
       >
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
@@ -170,8 +170,9 @@ export default function NavbarPage() {
 
         {isOpen ? (
           <Box
-          //  bg='blueviolet'
-          pb={4} display={{ md: "none" }}>
+           bg='blueviolet'
+          pb={4}
+          display={{ md: "none" }}>
             <Stack as={"nav"} spacing={4}>
               <Link
                 to="home"
