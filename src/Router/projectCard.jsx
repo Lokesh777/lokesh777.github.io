@@ -15,7 +15,7 @@ const projects = [
       label:'Stopwatch App',      
       img: "stopwatch.png",
       link: "https://stopwatch-ehclrh1le-lokesh777.vercel.app/",
-      git: "https://github.com/masai-course/Lokesh_fw18_0979/tree/master/unit-4/sprint-3/day-1/assignments/stopwatch",
+      git: "https://github.com/Lokesh777/StopWatch",
       about:
         "A stopwatch is a timepiece designed to measure the amount of time that elapses between its activation and deactivation.",
       stacks: [
