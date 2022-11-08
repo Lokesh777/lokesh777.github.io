@@ -30,7 +30,7 @@ export default function About() {
         <div className={styles.mainCont}>
           <div className={styles.profilePicCont}>
             <img
-              src="https://avatars.githubusercontent.com/u/101393657?v=4"
+              src="avatar.png"
               alt=""
               className={styles.profilePic}
             />

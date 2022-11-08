@@ -66,19 +66,19 @@
             <Box p={4}>
               <Wrap spacing={{ base: 20, sm: 3, md: 5, lg: 20 }}>
                 <WrapItem>
-                  <Box>
-                    <Heading>Contact</Heading>
-                    <Text mt={{ sm: 3, md: 3, lg: 5 }} color="white">
+                  <Box >
+                    <Heading >Contact</Heading>
+                    <Text mt={{ sm: 5, md: 5, lg: 7 }} color="white">
                       Fill up the form below to contact
                     </Text>
-                    <Box py={{ base: 5, sm: 5, md: 8, lg: 10 }}>
+                    <Box  py={{ base: 3, sm: 3, md: 5, lg: 6 }}>
                       <VStack pl={0} spacing={3} alignItems="flex-start">
                         <Button
                           size="md"
                           height="48px"
-                          width="200px"
+                          width="180px"
                           variant="ghost"
-                          color="#DCE2FF"
+                          color="#DCE2FF" 
                           _hover={{ border: '2px solid #0D74FF' }}
                           leftIcon={<MdPhone color="#1970F1" size="20px" />}>
                           +91-8448238707
@@ -86,7 +86,7 @@
                         <Button
                           size="md"
                           height="48px"
-                          width="250px"
+                          width="270px"
                           variant="ghost"
                           color="#DCE2FF"
                           _hover={{ border: '2px solid #0D74FF' }}
@@ -96,7 +96,7 @@
                         <Button
                           size="md"
                           height="48px"
-                          width="200px"
+                          width="210px"
                           variant="ghost"
                           color="#DCE2FF"
                           _hover={{ border: '2px solid #0D74FF' }}

@@ -29,7 +29,7 @@ const projects = [
       link: "https://little-fog-1256.vercel.app/",
       git: "https://github.com/Lokesh777/little-fog-1256",
       about:
-        "TrackingTime is a collaborative, cloud-based time tracking service that helps businesses of any size manage their projects, track working times and measure productivity.",
+        "It is a cloud-based service that helps businesses to manage their projects and working times, and measure productivity.",
       stacks: [
         <SiReact className={styles.stackIcon} />,
         <SiChakraui className={styles.stackIcon} />,
@@ -41,7 +41,7 @@ const projects = [
       link: "https://lucent-duckanoo-8aee96.netlify.app",
       git: "https://github.com/VinayPathania/Team-Spartans.git",
       about:
-        "This is e-commerce website used for buying and supplying medicine across the world.This was a team project where I with my teammates had created.My task was to do Login and Signup functionality and help in the css part. ",
+        "This is e-commerce website used for buying and supplying medicine across the world.",
       stacks: [
         <TiHtml5 className={styles.stackIcon} />,
         <TbBrandJavascript className={styles.stackIcon} />,
@@ -68,7 +68,7 @@ const projects = [
     return (
       <div className={styles.projectsSectionCont} id="projects">
         <Fade bottom>
-          <Text className={styles.headingH1}  as={"h1"} fontSize={{ base: "xl", md: "3xl" }} mb={8}>
+          <Text className={styles.headingH1}  as={"h1"} fontSize={{ base: "xl", md: "3xl" }} mb={16}>
             Projects
           </Text>
         </Fade>
