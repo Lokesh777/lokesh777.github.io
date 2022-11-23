@@ -10,6 +10,7 @@ import {
   Stack,
   
   Text,
+  Avatar,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import styles from "../styles/navbar.module.css";
@@ -34,9 +35,9 @@ export default function NavbarPage() {
 }
 
 
-// const Reload = () => {
-//   window.location.reload();
-// };
+const Reload = () => {
+  window.location.reload();
+};
 
 
   return (
@@ -50,7 +51,7 @@ export default function NavbarPage() {
          boxShadow='dark-lg'  
          height={"4.5rem"}
         //  bg='blueviolet'
-        bg={useColorModeValue("blueviolet", "#eaf8f8")}
+        // bg={useColorModeValue("blueviolet", "#eaf8f8")}
         // px={4}
         className={styles.mainBox}
       >
@@ -70,16 +71,7 @@ export default function NavbarPage() {
             alignItems={"center"}
           >
             <Box>
-              {/* <Avatar
-               onClick={Reload}
-               boxSize={["10","12","14","16"]}
-               borderRadius="full"
-               className={styles.myLogo}
-              //  mt={['3','4','4','4']}
-              //  ml={['1','1','1','2']}
-                size={"md"}
-                src="logo.png"
-              /> */}
+             
              
               <Link
                 to="home"
@@ -89,9 +81,20 @@ export default function NavbarPage() {
                 spy={true}
                 hashSpy={true}
               >
-                <Text fontSize="xl" fontWeight="bolder" className="logo">
+                     <Avatar
+                        onClick={Reload}
+                        boxSize={["10","12","14","16"]}
+                        borderRadius="full"
+                        className={styles.myLogo}
+                         mt={['3','4','4','4']}
+                         ml={['1','1','1','2']}
+                          size={"md"}
+                          src="LB.gif"
+                        />
+
+                {/* <Text fontSize="xl" fontWeight="bolder" className="logo">
                 <FaLaptop size='40' color="white"/>
-            </Text>
+                </Text> */}
               </Link>
 
             </Box>

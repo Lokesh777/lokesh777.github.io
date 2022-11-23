@@ -30,24 +30,28 @@ export default function About() {
         <div className={styles.mainCont}>
           <div className={styles.profilePicCont}>
             <img
-              src="avatar.png"
+              src="avatar.jpg"
               alt=""
               className={styles.profilePic}
             />
           </div>
           <div>
-            <h2>
+            {/* <h2>
               I am <span>Lokesh Kumar Bairwa</span>
-            </h2>
+            </h2> */}
 
             <p>
-              A web developer with a vast array of knowledge in many different
-              front end and backend languages, responsive frameworks, databases,
-              and best code practices. Look forward to using my skills for
-              gaining more experience.
+            Passionate about coding and eager to work with smart people in a challenging environment. 
+            Having exceptional interpersonal skills as well as the ability to produce interactions that
+            organizations and people really care about. <br/>
+            Love technology and try to use them smartlyto make everyday tasks easier.
             </p>
             <br/>
-          <Flex> <Text color={"#383874"} >Resume Download Here -</Text> <Button className= {styles.downloadBtn}  variant='outline' ><FaDownload onClick={()=>onButtonClick()} /></Button>  </Flex>
+          <Flex className={styles.resumeDownload} > <Text color={"#a00596"} >Resume Download Here -</Text>
+             <Button className= {styles.downloadBtn}  variant='outline' >
+             <FaDownload color="#a00596" onClick={()=>onButtonClick()} />
+            </Button> 
+         </Flex>
            
           </div>
         </div>

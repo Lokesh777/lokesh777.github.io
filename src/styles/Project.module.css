@@ -8,14 +8,14 @@
   padding-top: 12vh;
 }
 .projectsSectionCont h1 {
-  color: #383874;
+  color: #15153a;
 }
 .headingH1 {
   text-align: center;
   margin-top: 10px;
   font-weight: 800;
   font-size: 35px;
-  color:#383874;
+  color:#15153a;
   letter-spacing: 0.2rem;
   
 }
@@ -29,7 +29,7 @@
   
 }
 .stackIcon {
-  color: blueviolet;
+  color: #15153a;
   font-size: 30px;
   margin: 5px;
 }
@@ -98,7 +98,7 @@ a {
   justify-content: center;
   cursor: pointer;
 
-  background-color: blueviolet;
+  background-color: #15153a;
   color: #ffff;
   font-weight: 500;
   height: 40px;
@@ -113,8 +113,8 @@ a {
 .linkDiv:hover{
   color:black;
   background-color: white;
-  box-shadow: 1px 1px 17px 5px blueviolet;
--webkit-box-shadow: 1px 1px 17px 5px blueviolet;
+  box-shadow: 1px 1px 17px 5px #a00596;
+-webkit-box-shadow: 1px 1px 17px 5px #a00596;
 -moz-box-shadow: 1px 1px 17px 5px rgb(116, 54, 174);
 }
 .linkDiv p {

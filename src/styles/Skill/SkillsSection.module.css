@@ -21,8 +21,8 @@
     margin-top: 40px;
     font-weight: 800;
     font-size: 35px;
-    /* color: blueviolet; */
-    color: blueviolet;
+    /* color: #15153a; */
+    color: #15153a;
     letter-spacing: 0.2rem;
   }
   .skillsContFront {
@@ -63,7 +63,7 @@
   }
   .skillIcon {
     font-size: 60px;
-    color: blueviolet;
+    color: #15153a;
   }
   .expSkillIcon {
     font-size: 31px;

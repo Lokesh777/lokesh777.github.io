@@ -8,7 +8,7 @@ export function ProjectCard({label, img, git, link, stacks, about }) {
     <>
       <div className={styles.projectCont}>
         <img src={img} alt="" className={styles.image} />
-        <p style={{ color:"blueviolet", fontSize: "25px", fontWeight: "400", margin: "5px 0 0 0" }}>
+        <p style={{ color:"#15153a", fontSize: "25px", fontWeight: "400", margin: "5px 0 0 0" }}>
           {label}
         </p>
         <div className={styles.stacksDiv2}>{stacks.map((stack) => stack)}</div>

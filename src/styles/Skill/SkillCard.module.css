@@ -8,12 +8,12 @@
     padding-top: 20px;
     cursor: pointer;
     /* border: 1px solid; */
-    color: blueviolet;
+    color: #15153a;
     /* margin-left: 100px; */
   }
   .card:hover{
     color:#080823;
-    box-shadow: 1px 1px 17px 5px blueviolet;
-  -webkit-box-shadow: 1px 1px 17px 5px blueviolet;
+    box-shadow: 1px 1px 17px 5px #a00596;
+  -webkit-box-shadow: 1px 1px 17px 5px #a00596;
   -moz-box-shadow: 1px 1px 17px 5px rgb(116, 54, 174);
   }

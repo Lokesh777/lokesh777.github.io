@@ -2,7 +2,8 @@
 
 import './App.css';
 import GithubStat from './components/Github';
-import Home from './components/Home';
+import Home from './components/HomePage';
+// import Home from './components/Home';
 // import Navbar from './components/Navbar';
 import NavbarPage from './components/Navbar';
 import { SkillsSection } from './components/SkillSection';

@@ -4,7 +4,35 @@
 .submitBtn:hover{
   color:#080823;
   background-color: aliceblue;
-  box-shadow: 1px 1px 17px 5px blueviolet;
--webkit-box-shadow: 1px 1px 17px 5px blueviolet;
--moz-box-shadow: 1px 1px 17px 5px rgb(116, 54, 174);
+  box-shadow: 1px 1px 17px 5px rgb(218, 6, 229);
+-webkit-box-shadow: 1px 1px 17px 5px rgb(192, 17, 201);
+-moz-box-shadow: 1px 1px 17px 5px rgb(30, 11, 48);
+}
+
+@media screen and (max-width: 950px){
+    
+  .contactContainer{
+   text-align: center;
+   align-self: center;
+   margin: 0;
+
+  }
+}
+
+@media screen and (max-width: 768px){
+  .contactContainer{
+    text-align: center;
+    align-self: center;
+    margin: 0;
+ 
+   }
+}
+@media screen and (max-width: 468px){
+  .contactContainer{
+    text-align: center;
+    align-self: center;
+    margin: 0;
+ 
+   }
+  
 }

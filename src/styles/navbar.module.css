@@ -6,7 +6,7 @@
     z-index: 1;
     font-size: 20px;
     font-weight: 500;
-    color: #383874;
+    background-color: #15153a;
   }
   .myLogo:hover {
     animation: spin 2s linear infinite;
@@ -24,7 +24,7 @@
 
     }
     .nav:hover {
-      border-bottom: 3px solid #eeeef3;
+      border-bottom: 3px solid #ef2be2;
     }
   
     /* Animation for smaller screen  */
