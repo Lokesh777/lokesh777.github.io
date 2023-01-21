@@ -1,5 +1,5 @@
 
-import { SiChakraui, SiCss3, SiReact } from 'react-icons/si';
+import { SiChakraui, SiCss3, SiReact,SiExpress,SiMongodb,SiMaterialui } from 'react-icons/si';
  
   import styles from "../styles/Project.module.css";
    
@@ -12,8 +12,39 @@ import { TbBrandJavascript} from "react-icons/tb";
 const projects = [
     {
        
+      label:'Apna Mart',      
+      img: "Apnamart.gif",
+      link: "https://fascinating-gnome-6dd32e.netlify.app/",
+      git: "https://github.com/Lokesh777/Apna-Mart",
+      about:
+        "Apna Mart- India Ki Apni Dukaan - is a multicategory online shopping platform and provide home delivery.",
+      stacks: [
+        <SiReact className={styles.stackIcon} />,
+        <SiChakraui className={styles.stackIcon} />,
+        <SiExpress className={styles.stackIcon} />,
+        <SiMongodb className={styles.stackIcon} />,
+      ],
+    },
+    {
+       
+      label:'Wonderlust',      
+      img: "wonderlust.gif",
+      link: "https://prized-ring-1889.netlify.app/",
+      git: "https://github.com/Lokesh777/WonderLust",
+      about:
+       "Wonderust was the first website that allowed customers to purchase travel tickets without the help of a travel agent, making it a pioneer in web-based travel options.",
+      stacks: [
+        <SiReact className={styles.stackIcon} />,
+        <SiChakraui className={styles.stackIcon} />,
+        <SiMaterialui className={styles.stackIcon} />,
+        <SiExpress className={styles.stackIcon} />,
+        <SiMongodb className={styles.stackIcon} />,
+      ],
+    },
+    {
+       
       label:'Stopwatch App',      
-      img: "stopwatch.png",
+      img: "Stopwatch.jpeg",
       link: "https://stopwatch-ehclrh1le-lokesh777.vercel.app/",
       git: "https://github.com/Lokesh777/StopWatch",
       about:
@@ -25,7 +56,7 @@ const projects = [
     },
     {
       label:'TrackingTime Clone App',
-      img: "littleFog.png",
+      img: "TrackingTime.jpeg",
       link: "https://little-fog-1256.vercel.app/",
       git: "https://github.com/Lokesh777/little-fog-1256",
       about:

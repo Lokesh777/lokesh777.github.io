@@ -8,18 +8,26 @@ const GithubStat = () => {
     <div className={styles.gitBox}  id="github">
       <Fade bottom>
         <Text className={styles.headingH1} color="#383874" textAlign={"center"} mb={8} fontSize={{ base: "xl", md: "3xl" }}>Github Calender and Stats</Text>
-      <div className={styles.Github}>
-        <GitHubCalendar username="lokesh777" className="calender" />
-      </div>
-      <div className={styles.Github}>
-        <a href="https://github.com/lokesh777" rel="noreferrer" target="_blank">
-          <img
-            alt="7oSkaaa's Github Stats"
-            src="https://github-readme-stats.vercel.app/api?username=lokesh777&show_icons=true&count_private=true&theme=outrun"
-            height="192px"
-          />
-        </a>
-      </div>
+          <div className={styles.Github}>
+            <GitHubCalendar username="lokesh777" className="calender" />
+          </div>
+        
+          <div className={styles.Github}>
+              <p align="center">
+        
+                <img backgroundColor="#383874" src="http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Lokesh777&theme=2077"/>
+
+              </p>
+          </div>
+        
+          <div className={styles.Github}>
+            <p align="center" >
+              <a href="https://github-profile-trophy.vercel.app/?username=Lokesh777&theme=algolia">
+                <img backgroundColor="#383874" src="https://github-profile-trophy.vercel.app/?username=Lokesh777&theme=algolia" alt="Lokesh777" />
+                </a>
+              </p> 
+          </div>
+     
       </Fade>
     </div>
   );

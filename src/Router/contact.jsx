@@ -67,7 +67,7 @@
             p={{ sm: 5, md: 40, lg: 16 }}
             >
             <Box p={4}>
-              <Wrap spacing={{ base: 20, sm: 3, md: 5, lg: 20 }}>
+              <Wrap spacing={{ base: 20, sm: 3, md: 5, lg: 20 }} textAlign="center">
                 <WrapItem>
                   <Box >
                     <Heading >Contact</Heading>

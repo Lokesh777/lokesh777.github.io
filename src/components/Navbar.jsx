@@ -6,15 +6,15 @@ import {
   HStack,
   IconButton,
   useDisclosure,
-  useColorModeValue,
+  // useColorModeValue,
   Stack,
   
-  Text,
+  // Text,
   Avatar,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import styles from "../styles/navbar.module.css";
-import { FaLaptop } from "react-icons/fa";
+// import { FaLaptop } from "react-icons/fa";
 
 export default function NavbarPage() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -173,7 +173,7 @@ const Reload = () => {
 
         {isOpen ? (
           <Box
-           bg='blueviolet'
+           bg='#15153a'
           pb={4}
           display={{ md: "none" }}>
             <Stack as={"nav"} spacing={4}>
