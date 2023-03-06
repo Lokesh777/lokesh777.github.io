@@ -8,7 +8,7 @@ function Home() {
   return (
     <div id='home' className='hero-container'>
        <h3>Hi, I am Lokesh Kumar Bairwa</h3>
-      <h1>Full Stack Web Develper</h1>
+      <h1>Full Stack Web Developer</h1>
       {/* <h2>Full Stack Web Develper</h2> */}
       <p>An enthusiastic web developer with strong technical as well as communication skills and expertise in MERN stack.</p>
       <a href='#contact' className='hero-btns'>
