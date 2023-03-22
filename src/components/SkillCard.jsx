@@ -1,14 +1,17 @@
 import { Box, Text } from "@chakra-ui/react";
 import styles from "../styles/Skill/SkillCard.module.css";
+import BouncyButton from "./BouncyButton";
 
 export function SkillCard({ skill, icon }) {
   return (
-    <Box className={styles.card}>
-      {icon}
+      <BouncyButton>
+        <Box className={styles.card}>
+          {icon}
 
-      <Text fontWeight="bold" fontSize={{ base: "md", md: "xl" }}>
-        {skill}
-      </Text>
-    </Box>
+          <Text fontWeight="bold" fontSize={{ base: "md", md: "xl" }}>
+            {skill}
+          </Text>
+        </Box>
+    </BouncyButton>
   );
 }

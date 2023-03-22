@@ -1,5 +1,5 @@
 
-import { SiChakraui, SiCss3, SiReact,SiExpress,SiMongodb,SiMaterialui } from 'react-icons/si';
+import { SiChakraui, SiCss3, SiReact,SiExpress,SiMongodb,SiMaterialui, SiRedux } from 'react-icons/si';
  
   import styles from "../styles/Project.module.css";
    
@@ -8,6 +8,9 @@ import { SiChakraui, SiCss3, SiReact,SiExpress,SiMongodb,SiMaterialui } from 're
 import { ProjectCard } from './ProjectCarditem.jsx';
 import { TiHtml5 } from "react-icons/ti";
 import { TbBrandJavascript} from "react-icons/tb";
+import React, { useState } from 'react';
+import ScrollTrigger  from 'react-scroll-trigger';
+  import 'animate.css/animate.min.css';
 
 const projects = [
     {
@@ -55,15 +58,19 @@ const projects = [
       ],
     },
     {
-      label:'TrackingTime Clone App',
-      img: "TrackingTime.jpeg",
-      link: "https://little-fog-1256.vercel.app/",
-      git: "https://github.com/Lokesh777/little-fog-1256",
+      label:'Clone Page App',
+      img: "cloneApp.gif",
+      link: "https://kaleidoscopic-basbousa-ac4f85.netlify.app/",
+      git: "https://github.com/Lokesh777/own_app",
       about:
-        "It is a cloud-based service that helps businesses to manage their projects and working times, and measure productivity.",
+        "It is a clones page App that helps in businesses to manage their projects like Quiz App, games advertise,crud operation with add data and measure productivity.",
       stacks: [
         <SiReact className={styles.stackIcon} />,
-        <SiChakraui className={styles.stackIcon} />,
+        <SiRedux className={styles.stackIcon} />,
+        <SiMaterialui className={styles.stackIcon} />,
+        <SiExpress className={styles.stackIcon} />,
+        <SiMongodb className={styles.stackIcon} />,
+
       ],
     },
     {
@@ -96,21 +103,37 @@ const projects = [
 
  
   export function ProjectsSection() {
+    
+    const [isVisible, setIsVisible] = useState(false);
+
     return (
+        <ScrollTrigger onEnter={() => setIsVisible(true)} onExit={() => setIsVisible(false)}>
       <div className={styles.projectsSectionCont} id="projects">
-        <Fade bottom>
-          <Text className={styles.headingH1}  as={"h1"} fontSize={{ base: "xl", md: "3xl" }} mb={16}>
-            Projects
-          </Text>
-        </Fade>
+            <div className={isVisible ? 'animate__animated animate__rubberBand ' : ''}>
+                <Fade bottom>
+                  <Text className={styles.headingH1}  as={"h1"} fontSize={{ base: "xl", md: "3xl" }} mb={16}>
+                    Projects
+                  </Text>
+                </Fade>
+            </div>
+       
+
         <div className={styles.projectGrid}>
           {projects.map((project) => (
-            <Fade bottom>
-              <ProjectCard {...project} />
-            </Fade>
-          ))}
+
+            <div className={isVisible ? 'animate__animated animate__zoomIn ' : ''}>
+
+              <Fade bottom>
+                <ProjectCard {...project} />
+              </Fade>
+         
+          </div>
+
+))}
         </div>
+
       </div>
+</ScrollTrigger> 
     );
   }
   

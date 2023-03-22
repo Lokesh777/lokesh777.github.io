@@ -1,30 +1,36 @@
-
 import { SkillCard } from "./SkillCard"
 import styles from "../styles/Skill/SkillsSection.module.css"
 import { GrReactjs } from "react-icons/gr"
 import { SiChakraui, SiRedux } from "react-icons/si"
 import { SiJavascript } from "react-icons/si"
-// import { SiMaterialui } from "react-icons/si"
 import { SiHtml5 } from "react-icons/si"
 import { SiCss3 } from "react-icons/si"
 import { SiNodedotjs } from "react-icons/si"
 import { SiMongodb } from "react-icons/si"
-
 import { FaGitAlt } from "react-icons/fa"
 import { SiNpm } from "react-icons/si"
 import { SiPostman } from "react-icons/si"
 import { SiExpress } from "react-icons/si"
-
-import {Fade} from "react-awesome-reveal"
-import { Text } from "@chakra-ui/react"
+import { Fade } from "react-awesome-reveal"
+import { Text } from "@chakra-ui/react";
+import React, { useState } from 'react';
+import ScrollTrigger from 'react-scroll-trigger';
+import 'animate.css/animate.min.css';
 
 export function SkillsSection() {
+  const [isVisible, setIsVisible] = useState(false);
+
   return (
+
+        <ScrollTrigger onEnter={() => setIsVisible(true)} onExit={() => setIsVisible(false)}>
     <div className={styles.rootCont} id="skills">
-      <Fade bottom>
-      <Text className={styles.headingH1} color="#383874" as={"h1"}  fontSize={{ base: "xl", md: "3xl" }} mb={8}>
-      Front-end skills
-        </Text>        
+       <Fade bottom>
+          <div className={isVisible ? 'animate__animated animate__bounceInRight ' : ''}>
+              
+        <Text className={styles.headingH1} color="#383874" as={"h1"} fontSize={{ base: "xl", md: "3xl" }} mb={8}>
+          Front-end skills
+        </Text>
+
         <div className={styles.skillsContFront}>
           <SkillCard
             skill="React"
@@ -69,14 +75,19 @@ export function SkillsSection() {
               <SiCss3 className={`${styles.skillIcon} ${styles.cssIcon}`} />
             }
 
-            
+
           />
 
-          
+
         </div>
-        <Text className={styles.headingH1} color="#383874"  as={"h1"}  fontSize={{ base: "xl", md: "3xl" }} mb={8}>
-      Back-end skills
-        </Text> 
+        </div>
+         
+        <div className={isVisible ? 'animate__animated animate__zoomInDown animate__delay-1s ' : ''}>
+                 
+        <Text className={styles.headingH1} color="#383874" as={"h1"} fontSize={{ base: "xl", md: "3xl" }} mb={8}>
+          Back-end skills
+        </Text>
+
         <div className={styles.skillsContBack}>
           <SkillCard className={styles.nodess}
             skill="Node"
@@ -105,10 +116,14 @@ export function SkillsSection() {
             }
           />
         </div>
-       
-              <Text className={styles.headingH1} color="#383874"  as={"h1"}  fontSize={{ base: "xl", md: "3xl" }} mb={8}>
-      Tools
-        </Text> 
+       </div>
+      
+            
+          <div className={isVisible ? 'animate__animated animate__bounceInLeft' : ''}>
+         <Text className={styles.headingH1} color="#383874" as={"h1"} fontSize={{ base: "xl", md: "3xl" }} mb={8}>
+          Tools
+        </Text>
+
         <div className={styles.toolsDiv}>
           <SkillCard
             skill="Git"
@@ -127,7 +142,9 @@ export function SkillsSection() {
             }
           />
         </div>
+       </div>
       </Fade>
     </div>
+       </ScrollTrigger>
   )
 }
