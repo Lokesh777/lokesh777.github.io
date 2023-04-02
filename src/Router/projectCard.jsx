@@ -15,17 +15,14 @@ import ScrollTrigger  from 'react-scroll-trigger';
 const projects = [
     {
        
-      label:'Apna Mart',      
-      img: "Apnamart.gif",
-      link: "https://fascinating-gnome-6dd32e.netlify.app/",
-      git: "https://github.com/Lokesh777/Apna-Mart",
+      label:'Car World',      
+      img: "carWorld.gif",
+      link: "https://incandescent-khapse-53714e.netlify.app/",
+      git: "https://github.com/Lokesh777/CarWorld",
       about:
-        "Apna Mart- India Ki Apni Dukaan - is a multicategory online shopping platform and provide home delivery.",
+        "Car World- new experience - is a online information platform and provide all statistics with pie and bar chart.",
       stacks: [
-        <SiReact className={styles.stackIcon} />,
-        <SiChakraui className={styles.stackIcon} />,
-        <SiExpress className={styles.stackIcon} />,
-        <SiMongodb className={styles.stackIcon} />,
+        <SiReact className={styles.stackIcon} />
       ],
     },
     {
@@ -87,16 +84,17 @@ const projects = [
       ],
     },
     {
-      label:'Lyst Clone Website',
-      img: "lyst.png",
-      link: "https://62aec458d002661172622f35--delightful-biscochitos-b2f2b6.netlify.app/",
-      git: "https://github.com/Raj-Mandloii/lyst_project",
+      label:'Apna Mart',      
+      img: "Apnamart.gif",
+      link: "https://fascinating-gnome-6dd32e.netlify.app/",
+      git: "https://github.com/Lokesh777/Apna-Mart",
       about:
-        "Lyst is a fashion technology company, and premium shopping app.",
+        "Apna Mart- India Ki Apni Dukaan - is a multicategory online shopping platform and provide home delivery.",
       stacks: [
-        <TbBrandJavascript className={styles.stackIcon} />,
-        <TiHtml5 className={styles.stackIcon} />,
-        <SiCss3 className={styles.stackIcon} />,
+        <SiReact className={styles.stackIcon} />,
+        <SiChakraui className={styles.stackIcon} />,
+        <SiExpress className={styles.stackIcon} />,
+        <SiMongodb className={styles.stackIcon} />,
       ],
     },
   ];
