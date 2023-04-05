@@ -73,7 +73,7 @@ const projects = [
     {
       label:'PharmEasy Clone Website',
       img: "pharmaEasy.png",
-      link: "https://lucent-duckanoo-8aee96.netlify.app",
+      link: "https://holistic-remedies.netlify.app/",
       git: "https://github.com/VinayPathania/Team-Spartans.git",
       about:
         "This is e-commerce website used for buying and supplying medicine across the world.",
