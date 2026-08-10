@@ -1,16 +1,13 @@
 
 import { SiChakraui, SiCss3, SiReact,SiExpress,SiMongodb,SiMaterialui, SiRedux } from 'react-icons/si';
  
-  import styles from "../styles/Project.module.css";
-   
-  import { Fade } from "react-awesome-reveal";
-  import { Text } from "@chakra-ui/react";
+   import styles from "../styles/Project.module.css";
+    
+    import { Text } from "@chakra-ui/react";
 import { ProjectCard } from './ProjectCarditem.jsx';
 import { TiHtml5 } from "react-icons/ti";
 import { TbBrandJavascript} from "react-icons/tb";
-import React, { useState } from 'react';
-import ScrollTrigger  from 'react-scroll-trigger';
-  import 'animate.css/animate.min.css';
+import React from 'react';
 
 const projects = [
     {
@@ -102,36 +99,26 @@ const projects = [
  
   export function ProjectsSection() {
     
-    const [isVisible, setIsVisible] = useState(false);
-
     return (
-        <ScrollTrigger onEnter={() => setIsVisible(true)} onExit={() => setIsVisible(false)}>
       <div className={styles.projectsSectionCont} id="projects">
-            <div className={isVisible ? 'animate__animated animate__rubberBand ' : ''}>
-                <Fade bottom>
-                  <Text className={styles.headingH1}  as={"h1"} fontSize={{ base: "xl", md: "3xl" }} mb={16}>
-                    Projects
-                  </Text>
-                </Fade>
+            <div>
+                 <Text className={styles.headingH1}  as={"h1"} fontSize={{ base: "xl", md: "3xl" }} mb={16}>
+                     Projects
+                   </Text>
             </div>
-       
+        
 
         <div className={styles.projectGrid}>
           {projects.map((project) => (
 
-            <div className={isVisible ? 'animate__animated animate__zoomIn ' : ''}>
-
-              <Fade bottom>
-                <ProjectCard {...project} />
-              </Fade>
-         
-          </div>
+            <div>
+               <ProjectCard {...project} />
+           </div>
 
 ))}
         </div>
 
       </div>
-</ScrollTrigger> 
     );
   }
   

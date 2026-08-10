@@ -12,8 +12,6 @@ import {
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import styles from "../styles/navbar.module.css";
 import ScrollTrigger  from 'react-scroll-trigger';
-  import 'animate.css/animate.min.css';
-import BouncyButton from "./BouncyButton";
 
 export default function NavbarPage() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -82,7 +80,6 @@ export default function NavbarPage() {
                 >
                       
 
-                  <BouncyButton >
                         <Avatar
                             // onClick={Reload}
                             boxSize={["10","12","14","16"]}
@@ -93,7 +90,6 @@ export default function NavbarPage() {
                               size={"md"}
                               src="LB.gif"
                             />
-                 </BouncyButton>
                 </Link>
 
               </Box>
@@ -111,11 +107,9 @@ export default function NavbarPage() {
                   spy={true}
                   hashSpy={true}
                 >
-                  <BouncyButton >
-                    <span  className={styles.nav }>
-                       Home
-                    </span>
-                 </BouncyButton>
+                 <span  className={styles.nav }>
+                   Home
+                 </span>
                 </Link>
              
 
@@ -127,11 +121,9 @@ export default function NavbarPage() {
                   spy={true}
                   hashSpy={true}
                 >
-                  <BouncyButton >
-                    <span  className={styles.nav }>
+                  <span  className={styles.nav }>
                     About
-                    </span>
-                 </BouncyButton>
+                  </span>
                 </Link>
                 <Link
                   to="skills"
@@ -141,11 +133,9 @@ export default function NavbarPage() {
                   spy={true}
                   hashSpy={true}
                 >
-                     <BouncyButton >
                     <span  className={styles.nav }>
                     Skills
-                    </span>
-                 </BouncyButton>
+                  </span>
                 </Link>
                 <Link
                   to="projects"
@@ -155,11 +145,9 @@ export default function NavbarPage() {
                   spy={true}
                   hashSpy={true}
                 >
-                      <BouncyButton >
                     <span  className={styles.nav }>
                     Projects
-                    </span>
-                 </BouncyButton>
+                  </span>
                 </Link>
                 <Link
                   to="github"
@@ -169,11 +157,9 @@ export default function NavbarPage() {
                   spy={true}
                   hashSpy={true}
                 >
-                  <BouncyButton >
-                    <span  className={styles.nav }>
-                    GitHubCalendar
-                    </span>
-                 </BouncyButton>
+                  <span  className={styles.nav }>
+                  GitHubCalendar
+                </span>
                 </Link>
                 <Link
                   to="contact"
@@ -183,11 +169,9 @@ export default function NavbarPage() {
                   spy={true}
                   hashSpy={true}
                 >
-                      <BouncyButton >
                     <span  className={styles.nav }>
                     Contact
-                    </span>
-                 </BouncyButton>
+                  </span>
                 </Link>
               
                 <Link
@@ -199,11 +183,9 @@ export default function NavbarPage() {
                   hashSpy={true}
                   onClick={onButtonClick }
                 >
-                      <BouncyButton >
-                    <span  className={styles.nav }>
-                    Resume
-                    </span>
-                 </BouncyButton>
+                   <span  className={styles.nav }>
+                  Resume
+                </span>
                 </Link>
 
               </HStack>

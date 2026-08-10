@@ -11,21 +11,13 @@ import { FaGitAlt } from "react-icons/fa"
 import { SiNpm } from "react-icons/si"
 import { SiPostman } from "react-icons/si"
 import { SiExpress } from "react-icons/si"
-import { Fade } from "react-awesome-reveal"
 import { Text } from "@chakra-ui/react";
-import React, { useState } from 'react';
-import ScrollTrigger from 'react-scroll-trigger';
-import 'animate.css/animate.min.css';
+import React from 'react';
 
 export function SkillsSection() {
-  const [isVisible, setIsVisible] = useState(false);
-
   return (
-
-        <ScrollTrigger onEnter={() => setIsVisible(true)} onExit={() => setIsVisible(false)}>
     <div className={styles.rootCont} id="skills">
-       <Fade bottom>
-          <div className={isVisible ? 'animate__animated animate__bounceInRight ' : ''}>
+        <div>
               
         <Text className={styles.headingH1} color="#383874" as={"h1"} fontSize={{ base: "xl", md: "3xl" }} mb={8}>
           Front-end skills
@@ -79,10 +71,10 @@ export function SkillsSection() {
           />
 
 
-        </div>
-        </div>
-         
-        <div className={isVisible ? 'animate__animated animate__zoomInDown animate__delay-1s ' : ''}>
+         </div>
+       
+            
+        <div>
                  
         <Text className={styles.headingH1} color="#383874" as={"h1"} fontSize={{ base: "xl", md: "3xl" }} mb={8}>
           Back-end skills
@@ -116,10 +108,10 @@ export function SkillsSection() {
             }
           />
         </div>
-       </div>
-      
-            
-          <div className={isVisible ? 'animate__animated animate__bounceInLeft' : ''}>
+        </div>
+       
+             
+        <div>
          <Text className={styles.headingH1} color="#383874" as={"h1"} fontSize={{ base: "xl", md: "3xl" }} mb={8}>
           Tools
         </Text>
@@ -142,9 +134,8 @@ export function SkillsSection() {
             }
           />
         </div>
-       </div>
-      </Fade>
-    </div>
-       </ScrollTrigger>
+        </div>
+        </div>
+     </div>
   )
 }

@@ -1,25 +1,17 @@
 import styles from "../styles/Project.module.css"
 import LinkIcon from "@mui/icons-material/Link"
 import GitHubIcon from "@mui/icons-material/Link"
-import { Fade } from "react-awesome-reveal"
-import React, { useState } from 'react';
-import ScrollTrigger from 'react-scroll-trigger';
-import 'animate.css/animate.min.css';
-import BouncyButton from "../components/BouncyButton";
+import React from 'react';
 
 export function ProjectCard({ label, img, git, link, stacks, about }) {
 
-  const [isVisible, setIsVisible] = useState(false);
-
   return (
-    <> 
-       <BouncyButton>
+    <>
         <div className={styles.projectCont}>
-          
-          <img src={img} alt="" className={styles.image} />
 
-          <ScrollTrigger onEnter={() => setIsVisible(true)} onExit={() => setIsVisible(false)}>
-            <div className={isVisible ? 'animate__animated animate__rollIn animate__delay-1s ' : ''}>
+           <img src={img} alt="" className={styles.image} />
+
+           <div>
               <p style={{ color: "#15153a", fontSize: "25px", fontWeight: "400", margin: "5px 0 0 0" }}>
                 {label}
               </p>
@@ -46,15 +38,11 @@ export function ProjectCard({ label, img, git, link, stacks, about }) {
               </div>
 
               <div className={styles.projInfo}>
-                <Fade bottom>
-                  <p>{about}</p>
-                </Fade>
+                <p>{about}</p>
               </div>
 
             </div>
-          </ScrollTrigger>
-        </div>
-      </BouncyButton>
+         </div>
     </>
   )
 }
