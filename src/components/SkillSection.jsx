@@ -1,141 +1,110 @@
+import { Tabs, TabList, Tab, TabPanel, TabPanels, Text, IconButton, Box } from "@chakra-ui/react"
 import { SkillCard } from "./SkillCard"
 import styles from "../styles/Skill/SkillsSection.module.css"
-import { GrReactjs } from "react-icons/gr"
-import { SiChakraui, SiRedux } from "react-icons/si"
-import { SiJavascript } from "react-icons/si"
-import { SiHtml5 } from "react-icons/si"
-import { SiCss3 } from "react-icons/si"
-import { SiNodedotjs } from "react-icons/si"
-import { SiMongodb } from "react-icons/si"
-import { FaGitAlt } from "react-icons/fa"
-import { SiNpm } from "react-icons/si"
-import { SiPostman } from "react-icons/si"
-import { SiExpress } from "react-icons/si"
-import { Text } from "@chakra-ui/react";
-import React from 'react';
+import { BsChevronLeft, BsChevronRight } from "react-icons/bs"
+import { categories } from "./skills"
+import React, { useRef, useState, useEffect, cloneElement } from 'react'
+
+const tabStyle = {
+  fontSize: { base: "sm", md: "md" },
+  fontWeight: 600,
+  px: 3,
+  py: 2,
+  whiteSpace: "nowrap",
+  _selected: { color: "#a00596" },
+  _hover: { color: "#a00596" },
+}
+
+function CategorySection({ category }) {
+  return (
+    <div className={styles.category}>
+      <Box className={styles.skillsGrid}>
+        {category.skills.map((skill) => (
+          <SkillCard
+            key={skill.name}
+            skill={skill.name}
+            icon={cloneElement(skill.icon, { className: styles.skillIcon })}
+          />
+        ))}
+      </Box>
+    </div>
+  )
+}
 
 export function SkillsSection() {
+  const scrollRef = useRef(null)
+  const [canScrollLeft, setCanScrollLeft] = useState(false)
+  const [canScrollRight, setCanScrollRight] = useState(false)
+
+  const updateScrollButtons = () => {
+    const el = scrollRef.current
+    if (!el) {
+      setCanScrollLeft(false)
+      setCanScrollRight(false)
+      return
+    }
+    setCanScrollLeft(el.scrollLeft > 10)
+    setCanScrollRight(el.scrollWidth - el.clientWidth - el.scrollLeft > 10)
+  }
+
+  useEffect(() => {
+    const el = scrollRef.current
+    if (!el) return
+    updateScrollButtons()
+    el.addEventListener("scroll", updateScrollButtons)
+    window.addEventListener("resize", updateScrollButtons)
+    return () => {
+      el.removeEventListener("scroll", updateScrollButtons)
+      window.removeEventListener("resize", updateScrollButtons)
+    }
+  }, [])
+
   return (
     <div className={styles.rootCont} id="skills">
-        <div>
-              
-        <Text className={styles.headingH1} color="#383874" as={"h1"} fontSize={{ base: "xl", md: "3xl" }} mb={8}>
-          Front-end skills
-        </Text>
-
-        <div className={styles.skillsContFront}>
-          <SkillCard
-            skill="React"
-            icon={
-              <GrReactjs
-                className={`${styles.skillIcon} ${styles.reactIcon}`}
-              />
-            }
-          />
-          <SkillCard
-            skill="Redux"
-            icon={
-              <SiRedux className={`${styles.skillIcon} ${styles.reduxIcon}`} />
-            }
-          />
-          <SkillCard
-            skill="JavaScript"
-            icon={
-              <SiJavascript
-                className={`${styles.skillIcon} ${styles.jsIcon}`}
-              />
-            }
-          />
-          <SkillCard
-            skill="Chakra-Ui"
-            icon={
-              <SiChakraui
-                className={`${styles.skillIcon} ${styles.muiIcon}`}
-              />
-            }
-          />
-
-          <SkillCard
-            skill="Html"
-            icon={
-              <SiHtml5 className={`${styles.skillIcon} ${styles.htmlIcon}`} />
-            }
-          />
-          <SkillCard
-            skill="Css"
-            icon={
-              <SiCss3 className={`${styles.skillIcon} ${styles.cssIcon}`} />
-            }
-
-
-          />
-
-
-         </div>
-       
-            
-        <div>
-                 
-        <Text className={styles.headingH1} color="#383874" as={"h1"} fontSize={{ base: "xl", md: "3xl" }} mb={8}>
-          Back-end skills
-        </Text>
-
-        <div className={styles.skillsContBack}>
-          <SkillCard className={styles.nodess}
-            skill="Node"
-            icon={
-              <SiNodedotjs
-                className={`${styles.skillIcon} ${styles.nodeIcon}`}
-              />
-            }
-          />
-
-          <SkillCard
-            skill="MongoDb"
-            icon={
-              <SiMongodb
-                className={`${styles.skillIcon} ${styles.mongoIcon}`}
-              />
-            }
-          />
-
-          <SkillCard
-            skill="Express"
-            icon={
-              <SiExpress
-                className={`${styles.skillIcon} ${styles.mongoIcon}`}
-              />
-            }
-          />
+      <Text className={styles.headingH1} color="#383874" as={"h1"} fontSize={{ base: "xl", md: "3xl" }} mb={6}>
+        Technical Skills
+      </Text>
+      <Tabs variant="unstyled" defaultIndex={0} isLazy lazyBehavior="unmount">
+        <div className={styles.tabScrollWrap}>
+          {canScrollLeft && (
+            <IconButton
+              aria-label="Scroll tabs left"
+              icon={<BsChevronLeft />}
+              onClick={() => scrollRef.current.scrollBy({ left: -240, behavior: "smooth" })}
+              className={styles.chevron}
+              variant="ghost"
+              size="sm"
+            />
+          )}
+          <div ref={scrollRef} className={styles.tabScrollInner}>
+            <TabList className={styles.tabList}>
+              {categories.map((category) => (
+                <Tab key={category.title} {...tabStyle} className={styles.tab}>
+                  {category.title}
+                </Tab>
+              ))}
+            </TabList>
+          </div>
+          {canScrollRight && (
+            <IconButton
+              aria-label="Scroll tabs right"
+              icon={<BsChevronRight />}
+              onClick={() => scrollRef.current.scrollBy({ left: 240, behavior: "smooth" })}
+              className={styles.chevron}
+              variant="ghost"
+              size="sm"
+            />
+          )}
         </div>
-        </div>
-       
-             
-        <div>
-         <Text className={styles.headingH1} color="#383874" as={"h1"} fontSize={{ base: "xl", md: "3xl" }} mb={8}>
-          Tools
-        </Text>
 
-        <div className={styles.toolsDiv}>
-          <SkillCard
-            skill="Git"
-            icon={
-              <FaGitAlt className={`${styles.skillIcon} ${styles.gitIcon}`} />
-            }
-          />
-          <SkillCard
-            skill="Npm"
-            icon={<SiNpm className={`${styles.skillIcon} ${styles.gitIcon}`} />}
-          />
-          <SkillCard
-            skill="Postman"
-            icon={
-              <SiPostman className={`${styles.skillIcon} ${styles.gitIcon}`} />
-            }
-          />
-        </div>
-        </div>
-        </div>
-     </div>
+        <TabPanels>
+          {categories.map((category) => (
+            <TabPanel key={category.title} px={0} py={2}>
+              <CategorySection category={category} />
+            </TabPanel>
+          ))}
+        </TabPanels>
+      </Tabs>
+    </div>
   )
 }

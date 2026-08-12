@@ -1,112 +1,159 @@
 .rootCont {
-    width: 60%;
+    width: 80%;
+    max-width: 1150px;
     margin: auto;
     text-align: center;
-    height: 90vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    padding-top: 10vh;
-    padding-bottom: 10vh;
+    justify-content: center;
+    padding: 8rem 0 5rem;
   }
   .headingH1 {
     text-align: center;
-    margin-top: 40px;
     font-weight: 800;
     font-size: 35px;
-    /* color: #15153a; */
-    color:#383874;
+    color: #383874;
     letter-spacing: 0.2rem;
+    margin-bottom: 3rem;
   }
-  .rootCont > p {
-    font-size: 40px ;
-    font-weight: 400;
-  }
-  
+
   .mainCont {
     display: grid;
-    grid-template-columns: 30% 60%;
-    gap: 10%;
+    grid-template-columns: 34% 1fr;
+    gap: 4rem;
+    align-items: center;
+    text-align: left;
     color: #15153a;
-    font-size: 20px;
   }
-  .mainCont > div {
-    display: flex;
-    flex-direction: column;
-    /* align-items: center; */
-    justify-content: center;
-    text-align: left !important;
+
+  .profileCard {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: rgba(50, 50, 105, 0.15) 0px 8px 24px 0px;
+    border: 1px solid #efe6fa;
   }
-  .mainCont > div > h2 {
-    margin: 0px;
-  }
-  
 
   .profilePic {
-    text-align: right;
     width: 100%;
-    margin: auto;
-    border: 2px solid #ef2be2;
-    background-color: rgb(194, 195, 201);
-    border-radius: 10px;
+    display: block;
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
   }
-  .profilePic:hover{
-    color:#080823;
-    box-shadow: 1px 1px 17px 5px #b61cac;
-  -webkit-box-shadow: 1px 1px 17px 5px #8d168f;
-  -moz-box-shadow: 1px 1px 17px 5px rgb(45, 12, 52);
+
+  .profileInfo {
+    padding: 16px;
+    background: linear-gradient(135deg, #15153a 0%, #3a3a7a 100%);
+    color: #fff;
   }
-  @media only screen and (max-width: 1024px) {
+
+  .profileName {
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .profileRole {
+    font-size: 13px;
+    color: #e9d5ff;
+    margin-top: 4px;
+  }
+
+  .bioCont {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .bio {
+    font-size: 17px;
+    line-height: 1.7;
+    color: #3f3f55;
+    margin: 0;
+  }
+
+  .statsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 14px;
+  }
+
+  .statCard {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 16px 10px;
+    text-align: center;
+    box-shadow: rgba(50, 50, 105, 0.08) 0px 2px 8px 0px;
+  }
+
+  .statValue {
+    font-size: 28px;
+    font-weight: 800;
+    color: #15153a;
+  }
+
+  .statLabel {
+    font-size: 13px;
+    color: #4a5568;
+    margin-top: 4px;
+  }
+
+  .techRow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .techChip {
+    background: #f3e8ff;
+    color: #6b21a8;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 999px;
+    border: 1px solid #e9d5ff;
+  }
+
+  .resumeDownload {
+    margin-top: 4px;
+  }
+
+  .downloadBtn {
+    background: linear-gradient(135deg, #15153a 0%, #3a3a7a 100%);
+    color: #fff !important;
+    height: 44px;
+    padding: 0 22px;
+    border-radius: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  }
+
+  .downloadBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(21, 21, 58, 0.35);
+    background: linear-gradient(135deg, #a00596 0%, #6b0f6b 100%) !important;
+  }
+
+  @media only screen and (max-width: 900px) {
     .rootCont {
       width: 90%;
+      padding: 7rem 0 4rem;
     }
     .mainCont {
-      display: flex;
-      flex-direction: column;
-    }
-    .mainCont > div {
-      text-align: center !important;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      text-align: center;
     }
     .profilePicCont {
-      padding: 30px;
+      max-width: 320px;
+      width: 100%;
+      margin: 0 auto;
     }
-    .profilePic {
-      width: 60%;
+    .bioCont {
+      align-items: center;
+      text-align: center;
+    }
+    .techRow {
+      justify-content: center;
     }
   }
-  .downloadBtn{
-    width: 5rem;
-    margin: 0 0 0 1rem;
-    /* color: #327fc7; */
-  }
-
-  .downloadBtn:hover{
-    color:#aa1baa;
-    box-shadow: 1px 1px 17px 5px #ef2be2;
-  -webkit-box-shadow: 1px 1px 17px 5px #9f1a9f;
-  -moz-box-shadow: 1px 1px 17px 5px rgb(65, 18, 67);
-  }
-
-@media screen and (max-width: 950px){
-    
-   .resumeDownload{
-    text-align: center;
-    align-self: center;
-    margin: 0;
-
-   }
-}
-
-@media screen and (max-width: 768px){
-   
-}
-@media screen and (max-width: 468px){
-  .resumeDownload{
-    text-align: center;
-    align-self: center;
-    margin: 0;
-
-   }
-    
-   
-}

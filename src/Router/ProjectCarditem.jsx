@@ -2,47 +2,87 @@ import styles from "../styles/Project.module.css"
 import LinkIcon from "@mui/icons-material/Link"
 import GitHubIcon from "@mui/icons-material/Link"
 import React from 'react';
+import { StackTooltip } from "../components/StackTooltip";
 
-export function ProjectCard({ label, img, git, link, stacks, about }) {
+export function ProjectCard({ label, img, git, link, stacks, about, accent, video, company, companyLabel, onDetails }) {
+  const gradient = accent
+    ? `linear-gradient(135deg, ${accent[0]} 0%, ${accent[1]} 100%)`
+    : "linear-gradient(135deg, #15153a 0%, #3a3a7a 100%)";
+
+  const badge = company ? "PromptBI Feature" : "Side Project";
 
   return (
-    <>
-        <div className={styles.projectCont}>
+    <div
+      className={styles.projectCont}
+      onClick={onDetails}
+      role="button"
+      tabIndex={0}
+      aria-label={`Open ${label} details`}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          onDetails();
+        }
+      }}
+    >
+      <div className={styles.cardHeader}>
+        {video ? (
+          <iframe
+            src={video}
+            title={`${label} demo video`}
+            className={styles.cardVideo}
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          />
+        ) : img ? (
+          <img src={img} alt={label} className={styles.cardImage} />
+        ) : (
+          <div className={styles.cardPlaceholder} style={{ background: gradient }}>
+            <span className={styles.placeholderTitle}>{label}</span>
+          </div>
+        )}
+        <span className={styles.badge}>{badge}</span>
+      </div>
 
-           <img src={img} alt="" className={styles.image} />
+      <div className={styles.cardBody}>
+        <h3 className={styles.cardTitle}>{label}</h3>
 
-           <div>
-              <p style={{ color: "#15153a", fontSize: "25px", fontWeight: "400", margin: "5px 0 0 0" }}>
-                {label}
-              </p>
+        <div className={styles.stacksRow}>
+          {stacks.map((stack, i) => <StackTooltip key={i} name={stack.name} icon={stack.icon} />)}
+        </div>
 
-              <div className={styles.stacksDiv2}>
-                {stacks.map((stack) => stack)}
-              </div>
+        <p className={styles.cardAbout}>{about}</p>
 
-              <div className={styles.linkCont}>
-                <a href={git} rel="noreferrer" target="_blank">
-                  <div className={styles.linkDiv}>
-                    <GitHubIcon />
-                    <p>Code</p>
-                  </div>
-                </a>
-                <div className={styles.stacksDiv}>{stacks.map((stack) => stack)}</div>
-
-                <a href={link} rel="noreferrer" target="_blank">
-                  <div className={styles.linkDiv}>
-                    <LinkIcon />
-                    <p>Demo</p>
-                  </div>
-                </a>
-              </div>
-
-              <div className={styles.projInfo}>
-                <p>{about}</p>
-              </div>
-
-            </div>
-         </div>
-    </>
-  )
+        {(git || link) && (
+          <div className={styles.cardLinks}>
+            {git && (
+              <a
+                className={styles.linkBtn}
+                href={git}
+                target="_blank"
+                rel="noreferrer"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <GitHubIcon />
+                <span>Code</span>
+              </a>
+            )}
+            {link && (
+              <a
+                className={styles.linkBtn}
+                href={link}
+                target="_blank"
+                rel="noreferrer"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <LinkIcon />
+                <span>Demo</span>
+              </a>
+            )}
+          </div>
+        )}
+      </div>
+    </div>
+  );
 }

@@ -16,7 +16,138 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 40px;
-   color: blueviolet;
-   
-  }
+    color: blueviolet;
+    overflow-x: auto;
+    padding: 0 12px;
+}
+
+.Github img {
+    max-width: 100%;
+    height: auto;
+}
+
+.gitBox {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.badgesRow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin: 0 0 32px;
+}
+
+.badgesRow a {
+    display: inline-flex;
+    align-items: center;
+    line-height: 0;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.badgesRow a:hover {
+    transform: scale(1.08);
+    filter: brightness(1.15);
+}
+
+.badgesRow img {
+    max-width: 100%;
+    height: auto;
+}
+
+.statsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 16px;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto 40px;
+    padding: 0 12px;
+}
+
+.statCard {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 18px 10px;
+    text-align: center;
+    box-shadow: rgba(50, 50, 105, 0.08) 0px 2px 8px 0px;
+}
+
+.statValue {
+    font-size: 28px;
+    font-weight: 800;
+    color: #15153a;
+}
+
+.statLabel {
+    font-size: 13px;
+    color: #4a5568;
+    margin-top: 4px;
+}
+
+.langsCard {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 20px;
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto 40px;
+    box-shadow: rgba(50, 50, 105, 0.08) 0px 2px 8px 0px;
+}
+
+.langsTitle {
+    font-size: 16px;
+    font-weight: 700;
+    color: #15153a;
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.langRow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.langName {
+    width: 130px;
+    text-align: right;
+    font-size: 13px;
+    color: #15153a;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.langBarWrap {
+    flex: 1;
+    background: #edf2f7;
+    border-radius: 999px;
+    height: 10px;
+    overflow: hidden;
+}
+
+.langBar {
+    height: 100%;
+    border-radius: 999px;
+}
+
+.langPct {
+    width: 42px;
+    font-size: 12px;
+    color: #4a5568;
+    flex-shrink: 0;
+}
+
+.errorCard {
+    text-align: center;
+    color: #a00596;
+    font-size: 14px;
+    padding: 20px;
+}
   

@@ -64,7 +64,7 @@ video {
 }
 
 .hero-container > h3 {
-    margin-top: -8rem;
+    margin-top: 0;
     color: #15153a;
     font-size: 38px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -131,6 +131,39 @@ video {
                  0 10px 10px rgba(0,0,0,.2),
                  0 20px 20px rgba(0,0,0,.15); */
 } 
+
+.typing-svg {
+    margin-top: 1rem;
+    max-width: 100%;
+    height: auto;
+    filter: drop-shadow(0 1px 0 #ccc)
+            drop-shadow(0 2px 0 #c9c9c9)
+            drop-shadow(0 3px 0 #bbb)
+            drop-shadow(0 6px 1px rgba(0,0,0,.1))
+            drop-shadow(0 0 5px rgba(0,0,0,.1))
+            drop-shadow(0 1px 3px rgba(0,0,0,.3))
+            drop-shadow(0 3px 5px rgba(0,0,0,.2))
+            drop-shadow(0 5px 10px rgba(0,0,0,.25));
+}
+
+.hero-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.btns-outline {
+    background: transparent !important;
+    border: 2px solid #fff !important;
+    color: #fff !important;
+}
+
+.btns-outline:hover {
+    background: #fff !important;
+    color: #15153a !important;
+}
 
 
 .hero-btns {

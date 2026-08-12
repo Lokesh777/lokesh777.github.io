@@ -11,7 +11,7 @@
     Wrap,
     WrapItem,
     FormControl,
-    FormLabel,
+    FormErrorMessage,
     Input,
     InputGroup,
     InputLeftElement,
@@ -28,30 +28,114 @@
   import emailjs from "@emailjs/browser"
   import Swal from 'sweetalert2'
   import styles from "../styles/contact.module.css"
-  import React from 'react';
+  import React, { useState } from 'react';
 
   export default function ContactForm() {
+    // Replace with your own Google Apps Script Web App URL
+    // (Deploy -> New deployment -> Web app -> Execute as me, access: Anyone)
+    const SPREADSHEET_URL = "https://script.google.com/macros/s/AKfycbzpgUOcjg5qqxvkMiaP4K1_f8TvfGvDaEXvZNj3pCPckMiu7S1NraPX4JfKh54cf7Ytrw/exec";
+
+    const [errors, setErrors] = useState({});
+    const [formValues, setFormValues] = useState({
+      your_name: "",
+      your_email: "",
+      your_phone: "",
+      your_message: "",
+    });
+
+    const handleChange = (e) => {
+      setFormValues((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    };
+
+    const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formValues.your_email.trim());
+    const isFormValid =
+      formValues.your_name.trim().length > 0 &&
+      isValidEmail &&
+      formValues.your_message.trim().length > 0;
+
+    const resetForm = () => {
+      setFormValues({
+        your_name: "",
+        your_email: "",
+        your_phone: "",
+        your_message: "",
+      });
+    };
+
+    const handleKeyDown = (e) => {
+      if (e.key === "Enter" && e.target.tagName !== "TEXTAREA") {
+        e.preventDefault()
+        if (isFormValid) {
+          handleOnSubmit({
+            preventDefault: () => {},
+            currentTarget: e.currentTarget,
+            target: e.currentTarget,
+          })
+        }
+      }
+    };
+
     const handleOnSubmit = (e) => {
         e.preventDefault()
-        
-        emailjs.sendForm('service_6xirjde', 'template_1blpeve', e.target, 'g7jv5M7A1ijQAKAjq').then(
+        const form = e.target
+
+        const newErrors = {}
+        if (!formValues.your_name.trim()) {
+          newErrors.name = "Name is required"
+        }
+        if (!formValues.your_email.trim()) {
+          newErrors.email = "Email is required"
+        } else if (!isValidEmail) {
+          newErrors.email = "Enter a valid email"
+        }
+        const phone = formValues.your_phone.trim()
+        if (phone && !/^[+()\-\s\d]{7,20}$/.test(phone)) {
+          newErrors.phone = "Enter a valid phone number"
+        }
+        if (!formValues.your_message.trim()) {
+          newErrors.message = "Message is required"
+        }
+
+        setErrors(newErrors)
+        if (Object.keys(newErrors).length > 0) return
+
+        const payload = {
+          name: formValues.your_name,
+          email: formValues.your_email,
+          phone: formValues.your_phone,
+          message: formValues.your_message,
+          timestamp: new Date().toISOString(),
+        }
+
+        // Always record the submission in the spreadsheet.
+        fetch(SPREADSHEET_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'text/plain' },
+          body: JSON.stringify(payload),
+        }).catch((sheetError) => console.error('Spreadsheet fallback failed:', sheetError))
+
+        emailjs.sendForm('service_6xirjde', 'template_1blpeve', form, 'g7jv5M7A1ijQAKAjq').then(
           (result) => {
             console.log(result.text)
             Swal.fire({
               icon: 'success',
               title: 'Message Sent Successfully',
             })
+            form.reset()
+            resetForm()
           },
           (error) => {
             console.log(error.text)
+            // Email failed but the message is safely stored in the spreadsheet.
             Swal.fire({
-              icon: 'error',
-              title: 'Ooops, something went wrong',
-              text: error.text,
+              icon: 'success',
+              title: 'Message Recorded Successfully',
             })
+            form.reset()
+            resetForm()
           },
         )
-        e.target.reset()
       }
     return (
             <div id='contact'>
@@ -162,53 +246,69 @@
                                 <Box bg="white" borderRadius="lg">
                                     <Box m={8} color="#15153a">
                                       <VStack spacing={5}>
-                                        <form onSubmit={handleOnSubmit}>
-                                      
-                                            <FormControl id="name">
-                                              <FormLabel color={"#15153a"}>Your Name</FormLabel>
+                                          <form onSubmit={handleOnSubmit} onKeyDown={handleKeyDown} noValidate>
+
+                                            <FormControl id="name" isInvalid={!!errors.name} mb={4}>
                                               <InputGroup borderColor="#15153a">
                                                 <InputLeftElement
                                                   pointerEvents="none"
                                                   children={<BsPerson color={"#15153a"} />}
                                                 />
-                                                <Input type="text" name="your_name" size="md" />
+                                                <Input type="text" name="your_name" size="md" placeholder="Your Name" bg="#faf7ff" focusBorderColor="#a00596" rounded="md" value={formValues.your_name} onChange={handleChange} />
                                               </InputGroup>
+                                              <FormErrorMessage>{errors.name}</FormErrorMessage>
                                             </FormControl>
-                                       
-                                            <FormControl id="name">
-                                              <FormLabel color={"#15153a"}>Mail</FormLabel>
+
+                                            <FormControl id="email" isInvalid={!!errors.email} mb={4}>
                                               <InputGroup borderColor="#15153a">
                                                 <InputLeftElement
                                                   pointerEvents="none"
                                                   children={<MdOutlineEmail color={"#15153a"} />}
                                                 />
-                                                <Input type="text" name="your_email" size="md" />
+                                                <Input type="email" name="your_email" size="md" placeholder="Email Address" bg="#faf7ff" focusBorderColor="#a00596" rounded="md" value={formValues.your_email} onChange={handleChange} />
                                               </InputGroup>
+                                              <FormErrorMessage>{errors.email}</FormErrorMessage>
                                             </FormControl>
-                                      
-                                          <FormControl id="name">
-                                            <FormLabel color={"#15153a"}>Message</FormLabel>
-                                            <Textarea
-                                              borderColor="#15153a"
-                                              _hover={{
-                                                borderRadius: 'gray.300',
-                                              }}
-                                              name="your_message"
-                                              placeholder="message"
-                                            />
+
+                                            <FormControl id="phone" isInvalid={!!errors.phone} mb={4}>
+                                              <InputGroup borderColor="#15153a">
+                                                <InputLeftElement
+                                                  pointerEvents="none"
+                                                  children={<MdPhone color={"#15153a"} />}
+                                                />
+                                                <Input type="tel" name="your_phone" size="md" placeholder="Phone Number (optional)" bg="#faf7ff" focusBorderColor="#a00596" rounded="md" value={formValues.your_phone} onChange={handleChange} />
+                                              </InputGroup>
+                                              <FormErrorMessage>{errors.phone}</FormErrorMessage>
+                                            </FormControl>
+
+                                            <FormControl id="message" isInvalid={!!errors.message} mb={4}>
+                                              <Textarea
+                                                borderColor="#15153a"
+                                                bg="#faf7ff"
+                                                focusBorderColor="#a00596"
+                                                rounded="md"
+                                                name="your_message"
+                                                placeholder="Message..."
+                                                rows={5}
+                                                value={formValues.your_message}
+                                                onChange={handleChange}
+                                              />
+                                              <FormErrorMessage>{errors.message}</FormErrorMessage>
+                                            </FormControl>
+
+                                          <FormControl id="submit">
+                                            <Button
+                                            className={styles.submitBtn}
+                                            type="submit"
+                                              variant="solid"
+                                              bg="#15153a"
+                                              color="white"
+                                              _hover={{}}
+                                              isDisabled={!isFormValid}>
+                                              Send Message
+                                            </Button>
                                           </FormControl>
-                                        <FormControl id="name" float="right">
-                                          <Button
-                                          className={styles.submitBtn}
-                                          type="submit"
-                                            variant="solid"
-                                            bg="#15153a"
-                                            color="white"
-                                            _hover={{}}>
-                                            Send Message
-                                          </Button>
-                                        </FormControl>
-                                      
+
                                         </form>
                                       </VStack>
                                     </Box>

@@ -1,124 +1,35 @@
+import React, { useState } from 'react';
+import { projects } from "../data/projects";
+import { ProjectCard } from "./ProjectCarditem";
+import { ProjectDetail } from "../components/ProjectDetail";
+import styles from "../styles/Project.module.css";
 
-import { SiChakraui, SiCss3, SiReact,SiExpress,SiMongodb,SiMaterialui, SiRedux } from 'react-icons/si';
- 
-   import styles from "../styles/Project.module.css";
-    
-    import { Text } from "@chakra-ui/react";
-import { ProjectCard } from './ProjectCarditem.jsx';
-import { TiHtml5 } from "react-icons/ti";
-import { TbBrandJavascript} from "react-icons/tb";
-import React from 'react';
+export function ProjectsSection() {
+  const [selected, setSelected] = useState(null);
 
-const projects = [
-    {
-       
-      label:'Car World',      
-      img: "carWorld.gif",
-      link: "https://incandescent-khapse-53714e.netlify.app/",
-      git: "https://github.com/Lokesh777/CarWorld",
-      about:
-        "Car World- new experience - is a online information platform and provide all statistics with pie and bar chart.",
-      stacks: [
-        <SiReact className={styles.stackIcon} />
-      ],
-    },
-    {
-       
-      label:'Wonderlust',      
-      img: "wonderlust.gif",
-      link: "https://prized-ring-1889.netlify.app/",
-      git: "https://github.com/Lokesh777/WonderLust",
-      about:
-       "Wonderust was the first website that allowed customers to purchase travel tickets without the help of a travel agent, making it a pioneer in web-based travel options.",
-      stacks: [
-        <SiReact className={styles.stackIcon} />,
-        <SiChakraui className={styles.stackIcon} />,
-        <SiMaterialui className={styles.stackIcon} />,
-        <SiExpress className={styles.stackIcon} />,
-        <SiMongodb className={styles.stackIcon} />,
-      ],
-    },
-    {
-       
-      label:'Stopwatch App',      
-      img: "Stopwatch.jpeg",
-      link: "https://stopwatch-ehclrh1le-lokesh777.vercel.app/",
-      git: "https://github.com/Lokesh777/StopWatch",
-      about:
-        "A stopwatch is a timepiece designed to measure the amount of time that elapses between its activation and deactivation.",
-      stacks: [
-        <SiReact className={styles.stackIcon} />,
-        <SiChakraui className={styles.stackIcon} />,
-      ],
-    },
-    {
-      label:'Clone Page App',
-      img: "cloneApp.gif",
-      link: "https://kaleidoscopic-basbousa-ac4f85.netlify.app/",
-      git: "https://github.com/Lokesh777/own_app",
-      about:
-        "It is a clones page App that helps in businesses to manage their projects like Quiz App, games advertise,crud operation with add data and measure productivity.",
-      stacks: [
-        <SiReact className={styles.stackIcon} />,
-        <SiRedux className={styles.stackIcon} />,
-        <SiMaterialui className={styles.stackIcon} />,
-        <SiExpress className={styles.stackIcon} />,
-        <SiMongodb className={styles.stackIcon} />,
+  return (
+    <div className={styles.projectsSectionCont} id="projects">
+      <h1 className={styles.headingH1}>RECENT PROJECTS</h1>
 
-      ],
-    },
-    {
-      label:'PharmEasy Clone Website',
-      img: "pharmaEasy.png",
-      link: "https://holistic-remedies.netlify.app/",
-      git: "https://github.com/Lokesh777/PharmEasy",
-      about:
-        "This is e-commerce website used for buying and supplying medicine across the world.",
-      stacks: [
-        <TiHtml5 className={styles.stackIcon} />,
-        <TbBrandJavascript className={styles.stackIcon} />,
-        <SiCss3 className={styles.stackIcon} />,
-      ],
-    },
-    {
-      label:'Apna Mart',      
-      img: "Apnamart.gif",
-      link: "https://fascinating-gnome-6dd32e.netlify.app/",
-      git: "https://github.com/Lokesh777/Apna-Mart",
-      about:
-        "Apna Mart- India Ki Apni Dukaan - is a multicategory online shopping platform and provide home delivery.",
-      stacks: [
-        <SiReact className={styles.stackIcon} />,
-        <SiChakraui className={styles.stackIcon} />,
-        <SiExpress className={styles.stackIcon} />,
-        <SiMongodb className={styles.stackIcon} />,
-      ],
-    },
-  ];
-
- 
-  export function ProjectsSection() {
-    
-    return (
-      <div className={styles.projectsSectionCont} id="projects">
-            <div>
-                 <Text className={styles.headingH1}  as={"h1"} fontSize={{ base: "xl", md: "3xl" }} mb={16}>
-                     Projects
-                   </Text>
-            </div>
-        
-
-        <div className={styles.projectGrid}>
-          {projects.map((project) => (
-
-            <div>
-               <ProjectCard {...project} />
-           </div>
-
-))}
-        </div>
-
+      <div className={styles.projectGrid}>
+        {projects.map((project) => (
+          <ProjectCard
+            key={project.label}
+            label={project.label}
+            img={project.img}
+            git={project.git}
+            link={project.link}
+            accent={project.accent}
+            about={project.about}
+            stacks={project.stacks}
+            company={project.company}
+            companyLabel={project.companyLabel}
+            onDetails={() => setSelected(project)}
+          />
+        ))}
       </div>
-    );
-  }
-  
+
+      <ProjectDetail project={selected} isOpen={!!selected} onClose={() => setSelected(null)} />
+    </div>
+  );
+}

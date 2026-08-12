@@ -6,9 +6,13 @@ export function SkillCard({ skill, icon }) {
       <Box className={styles.card}>
         {icon}
 
-        <Text fontWeight="bold" fontSize={{ base: "md", md: "xl" }}>
-          {skill}
-        </Text>
+        <Text
+        fontWeight="bold"
+        fontSize={{ base: "11px", md: "xs" }}
+        textAlign="center"
+      >
+        {skill}
+      </Text>
       </Box>
   );
 }
