@@ -26,6 +26,12 @@
   white-space: normal !important;
   padding: 10px 14px !important;
   border: 2px solid transparent;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #eef0ff;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 .formCard {

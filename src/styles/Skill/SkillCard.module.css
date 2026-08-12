@@ -22,3 +22,7 @@
     border-color: #d8dcec;
     transform: translateY(-2px);
 }
+
+.skillIconInline {
+  font-size: inherit;
+}

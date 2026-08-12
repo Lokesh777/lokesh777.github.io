@@ -49,14 +49,26 @@
     transition: transform 0.2s ease, filter 0.2s ease;
 }
 
+.textBadge {
+    line-height: 1.2 !important;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: #15153a;
+    color: #eef0ff;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    border: 1px solid #3a3a7a;
+}
+
+.textBadge:hover {
+    background: #2a2a5a;
+    transform: translateY(-1px);
+}
+
 .badgesRow a:hover {
     transform: scale(1.05);
     filter: brightness(1.08);
-}
-
-.badgesRow img {
-    max-width: 100%;
-    height: auto;
 }
 
 .statsRow {

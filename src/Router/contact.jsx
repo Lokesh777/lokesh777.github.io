@@ -14,7 +14,6 @@ import {
   InputGroup,
   InputLeftElement,
   Textarea,
-  Link,
 } from "@chakra-ui/react";
 import { MdPhone, MdEmail, MdLocationOn, MdOutlineEmail } from "react-icons/md";
 import { BsGithub, BsLinkedin, BsPerson } from "react-icons/bs";
@@ -142,7 +141,7 @@ export default function ContactForm() {
           >
             <div className={styles.contactGrid}>
               <Box className={styles.contactInfo}>
-                <Heading size={{ base: "lg", md: "xl" }}>Contact</Heading>
+                <Heading as="h2" size={{ base: "lg", md: "xl" }}>Contact</Heading>
                 <Text mt={3} color="whiteAlpha.800" fontSize={{ base: "sm", md: "md" }}>
                   Fill up the form below to get in touch.
                 </Text>
@@ -153,9 +152,10 @@ export default function ContactForm() {
                     href="tel:+917065667959"
                     className={styles.infoBtn}
                     variant="ghost"
-                    color="#DCE2FF"
-                    leftIcon={<MdPhone color="white" size="20px" />}
-                    _hover={{ border: "2px solid #a00596", bg: "transparent" }}
+                    color="#EEF0FF"
+                    leftIcon={<MdPhone color="#EEF0FF" size="20px" aria-hidden="true" />}
+                    _hover={{ border: "2px solid #c4b5fd", bg: "transparent" }}
+                    aria-label="Call +91 7065667959"
                   >
                     +91-7065667959
                   </Button>
@@ -164,57 +164,57 @@ export default function ContactForm() {
                     href="mailto:lokeshdevgan777@gmail.com"
                     className={styles.infoBtn}
                     variant="ghost"
-                    color="#DCE2FF"
-                    leftIcon={<MdEmail color="white" size="20px" />}
-                    _hover={{ border: "2px solid #a00596", bg: "transparent" }}
+                    color="#EEF0FF"
+                    leftIcon={<MdEmail color="#EEF0FF" size="20px" aria-hidden="true" />}
+                    _hover={{ border: "2px solid #c4b5fd", bg: "transparent" }}
+                    aria-label="Email address lokeshdevgan777@gmail.com"
                   >
                     lokeshdevgan777@gmail.com
                   </Button>
-                  <Button
-                    className={styles.infoBtn}
-                    variant="ghost"
-                    color="#DCE2FF"
-                    leftIcon={<MdLocationOn color="white" size="20px" />}
-                    _hover={{ border: "2px solid #a00596", bg: "transparent" }}
-                  >
-                    Bundi, Rajasthan, India
-                  </Button>
+                  <p className={styles.infoBtn} aria-label="Location: Bundi, Rajasthan, India">
+                    <MdLocationOn color="#EEF0FF" size="20px" aria-hidden="true" />
+                    <span>Bundi, Rajasthan, India</span>
+                  </p>
                 </VStack>
 
                 <HStack mt={8} spacing={4} justify={{ base: "center", md: "flex-start" }}>
-                  <Link href="https://github.com/Lokesh777" isExternal>
-                    <IconButton
-                      aria-label="GitHub"
-                      variant="ghost"
-                      size="lg"
-                      isRound
-                      color="white"
-                      _hover={{ bg: "white", color: "#15153a" }}
-                      icon={<BsGithub size="28px" />}
-                    />
-                  </Link>
-                  <Link href="mailto:lokeshdevgan777@gmail.com" isExternal>
-                    <IconButton
-                      aria-label="Email"
-                      variant="ghost"
-                      size="lg"
-                      isRound
-                      color="white"
-                      _hover={{ bg: "white", color: "#15153a" }}
-                      icon={<MdEmail size="28px" />}
-                    />
-                  </Link>
-                  <Link href="https://www.linkedin.com/in/lokeshkumar777/" isExternal>
-                    <IconButton
-                      aria-label="LinkedIn"
-                      variant="ghost"
-                      size="lg"
-                      isRound
-                      color="white"
-                      _hover={{ bg: "white", color: "#15153a" }}
-                      icon={<BsLinkedin size="26px" />}
-                    />
-                  </Link>
+                  <IconButton
+                    as="a"
+                    href="https://github.com/Lokesh777"
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="Visit Lokesh Kumar on GitHub"
+                    variant="ghost"
+                    size="lg"
+                    isRound
+                    color="white"
+                    _hover={{ bg: "white", color: "#15153a" }}
+                    icon={<BsGithub size="28px" aria-hidden="true" focusable="false" />}
+                  />
+                  <IconButton
+                    as="a"
+                    href="mailto:lokeshdevgan777@gmail.com"
+                    aria-label="Send email to lokeshdevgan777@gmail.com"
+                    variant="ghost"
+                    size="lg"
+                    isRound
+                    color="white"
+                    _hover={{ bg: "white", color: "#15153a" }}
+                    icon={<MdEmail size="28px" aria-hidden="true" focusable="false" />}
+                  />
+                  <IconButton
+                    as="a"
+                    href="https://www.linkedin.com/in/lokeshkumar777/"
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="Visit Lokesh Kumar on LinkedIn"
+                    variant="ghost"
+                    size="lg"
+                    isRound
+                    color="white"
+                    _hover={{ bg: "white", color: "#15153a" }}
+                    icon={<BsLinkedin size="26px" aria-hidden="true" focusable="false" />}
+                  />
                 </HStack>
               </Box>
 

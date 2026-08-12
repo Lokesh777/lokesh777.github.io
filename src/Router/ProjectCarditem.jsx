@@ -1,6 +1,5 @@
 import styles from "../styles/Project.module.css"
-import LinkIcon from "@mui/icons-material/Link"
-import GitHubIcon from "@mui/icons-material/GitHub"
+import { FaGithub, FaExternalLinkAlt } from "react-icons/fa"
 import React from 'react';
 import { StackTooltip } from "../components/StackTooltip";
 
@@ -14,20 +13,18 @@ export function ProjectCard({ label, img, git, link, stacks, about, accent, vide
     : "Personal Project";
 
   return (
-    <div
-      className={styles.projectCont}
-      onClick={onDetails}
-      role="button"
-      tabIndex={0}
-      aria-label={`Open ${label} details`}
-      onKeyDown={(e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          onDetails();
-        }
-      }}
-    >
-      <div className={styles.cardHeader}>
+    <article className={styles.projectCont}>
+      <div
+        className={styles.cardHeader}
+        onClick={onDetails}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            onDetails();
+          }
+        }}
+        role="presentation"
+      >
         {video ? (
           <iframe
             src={video}
@@ -38,9 +35,17 @@ export function ProjectCard({ label, img, git, link, stacks, about, accent, vide
             allowFullScreen
           />
         ) : img ? (
-          <img src={img} alt={label} className={styles.cardImage} />
+          <img
+            src={img}
+            alt=""
+            className={styles.cardImage}
+            width={640}
+            height={360}
+            loading="lazy"
+            decoding="async"
+          />
         ) : (
-          <div className={styles.cardPlaceholder} style={{ background: gradient }}>
+          <div className={styles.cardPlaceholder} style={{ background: gradient }} aria-hidden="true">
             <span className={styles.placeholderTitle}>{label}</span>
           </div>
         )}
@@ -50,11 +55,19 @@ export function ProjectCard({ label, img, git, link, stacks, about, accent, vide
       </div>
 
       <div className={styles.cardBody}>
-        <h3 className={styles.cardTitle}>{label}</h3>
+        <h3 className={styles.cardTitle}>
+          <button type="button" className={styles.titleBtn} onClick={onDetails}>
+            {label}
+          </button>
+        </h3>
 
-        <div className={styles.stacksRow}>
-          {stacks.map((stack, i) => <StackTooltip key={i} name={stack.name} icon={stack.icon} />)}
-        </div>
+        <ul className={styles.stacksRow}>
+          {stacks.map((stack, i) => (
+            <li key={`${stack.name}-${i}`} className={styles.stackItem}>
+              <StackTooltip name={stack.name} icon={stack.icon} />
+            </li>
+          ))}
+        </ul>
 
         <p className={styles.cardAbout}>{about}</p>
 
@@ -66,9 +79,9 @@ export function ProjectCard({ label, img, git, link, stacks, about, accent, vide
                 href={git}
                 target="_blank"
                 rel="noreferrer"
-                onClick={(e) => e.stopPropagation()}
+                aria-label={`${label} source code on GitHub`}
               >
-                <GitHubIcon fontSize="small" />
+                <FaGithub aria-hidden="true" focusable="false" />
                 <span>Code</span>
               </a>
             )}
@@ -78,15 +91,15 @@ export function ProjectCard({ label, img, git, link, stacks, about, accent, vide
                 href={link}
                 target="_blank"
                 rel="noreferrer"
-                onClick={(e) => e.stopPropagation()}
+                aria-label={`${label} live demo`}
               >
-                <LinkIcon fontSize="small" />
+                <FaExternalLinkAlt aria-hidden="true" focusable="false" />
                 <span>Demo</span>
               </a>
             )}
           </div>
         )}
       </div>
-    </div>
+    </article>
   );
 }

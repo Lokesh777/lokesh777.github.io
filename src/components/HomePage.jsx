@@ -66,28 +66,28 @@ function Home() {
         </p>
 
         <div className='hero-cta'>
-          <a href='#contact'>
-            <Button
-              className='btn-primary'
-              bg='#ffffff'
-              color='#15153a'
-              _hover={{ bg: '#efe8ff', transform: 'translateY(-2px)' }}
-            >
-              CONTACT ME
-            </Button>
-          </a>
-          <a href='#projects'>
-            <Button
-              className='btn-outline'
-              variant='outline'
-              bg='transparent'
-              color='#ffffff'
-              borderColor='#ffffff'
-              _hover={{ bg: '#ffffff', color: '#15153a', transform: 'translateY(-2px)' }}
-            >
-              VIEW MY WORK
-            </Button>
-          </a>
+          <Button
+            as='a'
+            href='#contact'
+            className='btn-primary'
+            bg='#ffffff'
+            color='#15153a'
+            _hover={{ bg: '#efe8ff', transform: 'translateY(-2px)' }}
+          >
+            CONTACT ME
+          </Button>
+          <Button
+            as='a'
+            href='#projects'
+            className='btn-outline'
+            variant='outline'
+            bg='transparent'
+            color='#ffffff'
+            borderColor='#ffffff'
+            _hover={{ bg: '#ffffff', color: '#15153a', transform: 'translateY(-2px)' }}
+          >
+            VIEW MY WORK
+          </Button>
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import { Tabs, TabList, Tab, TabPanel, TabPanels, Text, IconButton, Box } from "@chakra-ui/react"
+import { Tabs, TabList, Tab, TabPanel, TabPanels, Text, IconButton } from "@chakra-ui/react"
 import { SkillCard } from "./SkillCard"
 import styles from "../styles/Skill/SkillsSection.module.css"
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs"
@@ -18,7 +18,7 @@ const tabStyle = {
 function CategorySection({ category }) {
   return (
     <div className={styles.category}>
-      <Box className={styles.skillsGrid}>
+      <ul className={styles.skillsGrid}>
         {category.skills.map((skill) => (
           <SkillCard
             key={skill.name}
@@ -26,7 +26,7 @@ function CategorySection({ category }) {
             icon={cloneElement(skill.icon, { className: styles.skillIcon })}
           />
         ))}
-      </Box>
+      </ul>
     </div>
   )
 }
@@ -50,18 +50,34 @@ export function SkillsSection() {
   useEffect(() => {
     const el = scrollRef.current
     if (!el) return
-    updateScrollButtons()
-    el.addEventListener("scroll", updateScrollButtons)
-    window.addEventListener("resize", updateScrollButtons)
+
+    let frame = 0
+    const scheduleUpdate = () => {
+      cancelAnimationFrame(frame)
+      frame = requestAnimationFrame(updateScrollButtons)
+    }
+
+    scheduleUpdate()
+    el.addEventListener("scroll", scheduleUpdate, { passive: true })
+    window.addEventListener("resize", scheduleUpdate)
+
+    let observer
+    if (typeof ResizeObserver !== "undefined") {
+      observer = new ResizeObserver(scheduleUpdate)
+      observer.observe(el)
+    }
+
     return () => {
-      el.removeEventListener("scroll", updateScrollButtons)
-      window.removeEventListener("resize", updateScrollButtons)
+      cancelAnimationFrame(frame)
+      el.removeEventListener("scroll", scheduleUpdate)
+      window.removeEventListener("resize", scheduleUpdate)
+      if (observer) observer.disconnect()
     }
   }, [])
 
   return (
     <div className={styles.rootCont} id="skills">
-      <Text className={styles.headingH1} color="#383874" as={"h1"} fontSize={{ base: "xl", md: "3xl" }} mb={6}>
+      <Text className={styles.headingH1} color="#383874" as="h2" fontSize={{ base: "xl", md: "3xl" }} mb={6}>
         Technical Skills
       </Text>
       <Tabs variant="unstyled" defaultIndex={0} isLazy lazyBehavior="unmount">

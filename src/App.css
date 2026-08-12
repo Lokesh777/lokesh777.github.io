@@ -2,6 +2,27 @@
   text-align: center;
 }
 
+.skipLink {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 10000;
+  padding: 12px 16px;
+  background: #ffffff;
+  color: #15153a;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 0 0 8px 0;
+}
+
+.skipLink:focus {
+  left: 0;
+}
+
+main#main-content {
+  display: block;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

@@ -143,9 +143,34 @@ function TopLanguagesCard({ username }) {
 
 const GithubStat = () => {
   const [streakError, setStreakError] = useState(false);
+  const [showHeavy, setShowHeavy] = useState(false);
+  const sectionRef = React.useRef(null);
+
+  useEffect(() => {
+    const node = sectionRef.current;
+    if (!node) return undefined;
+
+    if (typeof IntersectionObserver === "undefined") {
+      setShowHeavy(true);
+      return undefined;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          setShowHeavy(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "200px 0px" }
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <div className={styles.gitBox} id="github">
+    <div className={styles.gitBox} id="github" ref={sectionRef}>
       <div>
         <Text
           className={styles.headingH1}
@@ -153,58 +178,72 @@ const GithubStat = () => {
           textAlign={"center"}
           mb={8}
           fontSize={{ base: "xl", md: "3xl" }}
+          as="h2"
         >
           Github Calendar and Stats
         </Text>
       </div>
 
-      <div className={styles.badgesRow}>
-        <a href="https://github.com/Lokesh777" target="_blank" rel="noreferrer">
-          <img
-            src="https://komarev.com/ghpvc/?username=Lokesh777&label=Profile%20views&color=15153a&style=flat"
-            alt="Lokesh Kumar profile views"
-          />
-        </a>
-        <a
-          href="https://github.com/Lokesh777?tab=followers"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <img
-            src="https://img.shields.io/github/followers/Lokesh777?label=Followers&style=social"
-            alt="GitHub followers"
-          />
-        </a>
-      </div>
+      {showHeavy ? (
+        <>
+          <div className={styles.badgesRow}>
+            <a
+              href="https://github.com/Lokesh777"
+              target="_blank"
+              rel="noreferrer"
+              className={styles.textBadge}
+            >
+              GitHub profile
+            </a>
+            <a
+              href="https://github.com/Lokesh777?tab=followers"
+              target="_blank"
+              rel="noreferrer"
+              className={styles.textBadge}
+            >
+              Followers on GitHub
+            </a>
+          </div>
 
-      <div className={styles.Github}>
-        <GitHubCalendar
-          username={USERNAME}
-          blockSize={13}
-          blockMargin={4}
-          fontSize={13}
-          showTotalCount
-          theme={calendarTheme}
-        />
-      </div>
-
-      <div className={styles.statsRow}>
-        <div className={styles.statCard}>
-          {streakError ? (
-            <span className={styles.errorCard}>Couldn&apos;t load GitHub streak stats.</span>
-          ) : (
-            <img
-              className={styles.statImage}
-              src={STREAK_STATS_URL}
-              alt="Lokesh777 GitHub streak stats"
-              onError={() => setStreakError(true)}
+          <div className={styles.Github} role="img" aria-label="GitHub contribution calendar for Lokesh777">
+            <GitHubCalendar
+              username={USERNAME}
+              blockSize={13}
+              blockMargin={4}
+              fontSize={13}
+              showTotalCount
+              theme={calendarTheme}
             />
-          )}
+          </div>
+
+          <div className={styles.statsRow}>
+            <div className={styles.statCard}>
+              {streakError ? (
+                <span className={styles.errorCard}>Couldn&apos;t load GitHub streak stats.</span>
+              ) : (
+                <img
+                  className={styles.statImage}
+                  src={STREAK_STATS_URL}
+                  alt="Lokesh777 GitHub streak stats"
+                  width={495}
+                  height={195}
+                  loading="lazy"
+                  decoding="async"
+                  onError={() => setStreakError(true)}
+                />
+              )}
+            </div>
+            <div className={styles.statCard}>
+              <TopLanguagesCard username={USERNAME} />
+            </div>
+          </div>
+        </>
+      ) : (
+        <div className={styles.statsRow} aria-hidden="true">
+          <div className={styles.statCard} />
+          <div className={styles.statCard} />
         </div>
-        <div className={styles.statCard}>
-          <TopLanguagesCard username={USERNAME} />
-        </div>
-      </div>
+      )}
     </div>
   );
 };

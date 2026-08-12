@@ -43,7 +43,7 @@ export default function About() {
 
   return (
     <div className={styles.rootCont} id="about">
-      <Text className={styles.headingH1} fontSize={{ base: "xl", md: "3xl" }}>
+      <Text as="h2" className={styles.headingH1} fontSize={{ base: "xl", md: "3xl" }}>
         About Me
       </Text>
 
@@ -51,9 +51,13 @@ export default function About() {
         <div className={styles.profilePicCont}>
           <div className={styles.profileCard}>
             <img
-              src="avatar.jpg"
+              src={`${process.env.PUBLIC_URL}/avatar.jpg`}
               alt="Lokesh Kumar Bairwa"
               className={styles.profilePic}
+              width={400}
+              height={400}
+              loading="lazy"
+              decoding="async"
             />
             <div className={styles.profileInfo}>
               <div className={styles.profileName}>Lokesh Kumar Bairwa</div>

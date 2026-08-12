@@ -1,40 +1,64 @@
+.mainBox {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  font-size: 20px;
+  font-weight: 500;
+  background-color: #15153a;
+}
 
-.mainBox{
-    position: sticky;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    font-size: 20px;
-    font-weight: 500;
-    background-color: #15153a;
-  }
-  .myLogo {
-    cursor: pointer;
-  }
-  
-  .nav {
-      cursor: pointer;
-      height: 45px;
-      display: flex;
-      align-items: center;
-      width: 100%;
-      justify-content: center;
-      color:white
+.logoLink {
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
+  position: relative;
+}
 
-    }
-    .nav:hover {
-      border-bottom: 3px solid #ef2be2;
-    }
+.myLogo {
+  cursor: pointer;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
 
-  .navStatic {
-    cursor: default;
-    height: 45px;
-    display: flex;
-    align-items: center;
-    width: 100%;
-    justify-content: center;
-    color: white;
-    opacity: 0.85;
-    user-select: none;
-  }
-    
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.nav {
+  cursor: pointer;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.nav:hover {
+  border-bottom: 3px solid #c4b5fd;
+}
+
+.navStatic {
+  cursor: default;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  color: white;
+  opacity: 0.85;
+  user-select: none;
+}
