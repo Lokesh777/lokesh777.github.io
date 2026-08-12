@@ -1,6 +1,6 @@
 import styles from "../styles/Project.module.css"
 import LinkIcon from "@mui/icons-material/Link"
-import GitHubIcon from "@mui/icons-material/Link"
+import GitHubIcon from "@mui/icons-material/GitHub"
 import React from 'react';
 import { StackTooltip } from "../components/StackTooltip";
 
@@ -9,7 +9,9 @@ export function ProjectCard({ label, img, git, link, stacks, about, accent, vide
     ? `linear-gradient(135deg, ${accent[0]} 0%, ${accent[1]} 100%)`
     : "linear-gradient(135deg, #15153a 0%, #3a3a7a 100%)";
 
-  const badge = company ? "PromptBI Feature" : "Side Project";
+  const badge = company
+    ? (companyLabel ? `${companyLabel}` : "Company Project")
+    : "Personal Project";
 
   return (
     <div
@@ -42,7 +44,9 @@ export function ProjectCard({ label, img, git, link, stacks, about, accent, vide
             <span className={styles.placeholderTitle}>{label}</span>
           </div>
         )}
-        <span className={styles.badge}>{badge}</span>
+        <span className={`${styles.badge} ${company ? styles.badgeCompany : styles.badgePersonal}`}>
+          {badge}
+        </span>
       </div>
 
       <div className={styles.cardBody}>
@@ -64,7 +68,7 @@ export function ProjectCard({ label, img, git, link, stacks, about, accent, vide
                 rel="noreferrer"
                 onClick={(e) => e.stopPropagation()}
               >
-                <GitHubIcon />
+                <GitHubIcon fontSize="small" />
                 <span>Code</span>
               </a>
             )}
@@ -76,7 +80,7 @@ export function ProjectCard({ label, img, git, link, stacks, about, accent, vide
                 rel="noreferrer"
                 onClick={(e) => e.stopPropagation()}
               >
-                <LinkIcon />
+                <LinkIcon fontSize="small" />
                 <span>Demo</span>
               </a>
             )}

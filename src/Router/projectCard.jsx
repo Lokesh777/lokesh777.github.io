@@ -9,7 +9,7 @@ export function ProjectsSection() {
 
   return (
     <div className={styles.projectsSectionCont} id="projects">
-      <h1 className={styles.headingH1}>RECENT PROJECTS</h1>
+      <h1 className={styles.headingH1}>Recent Projects</h1>
 
       <div className={styles.projectGrid}>
         {projects.map((project) => (
@@ -19,6 +19,7 @@ export function ProjectsSection() {
             img={project.img}
             git={project.git}
             link={project.link}
+            video={project.video}
             accent={project.accent}
             about={project.about}
             stacks={project.stacks}

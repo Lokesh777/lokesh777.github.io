@@ -51,7 +51,6 @@
   top: 10px;
   right: 0;
   z-index: 2;
-  background: linear-gradient(135deg, #a00596 0%, #6b0f6b 100%);
   color: #fff;
   font-size: 11px;
   font-weight: 700;
@@ -60,6 +59,12 @@
   padding: 6px 14px 6px 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
   clip-path: polygon(10px 0, 100% 0, 100% 100%, 10px 100%, 0 50%);
+}
+.badgeCompany {
+  background: linear-gradient(135deg, #15153a 0%, #3a3a7a 100%);
+}
+.badgePersonal {
+  background: linear-gradient(135deg, #2f4f6f 0%, #4a6a8a 100%);
 }
 .cardVideo {
   width: 100%;
@@ -133,7 +138,7 @@
   margin: 0;
   font-size: 13px;
   line-height: 1.55;
-  color: rgb(61, 3, 116);
+  color: #3f3f55;
   text-align: center;
   flex: 1;
 }
@@ -158,12 +163,21 @@
   transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
 }
 .linkBtn:hover {
-  color: #000;
+  color: #15153a;
   background-color: #fff;
-  box-shadow: 1px 1px 17px 5px #a00596;
+  box-shadow: 0 6px 16px rgba(21, 21, 58, 0.25);
 }
 
 /* Detail modal */
+.detailModal {
+  display: flex;
+  flex-direction: column;
+}
+
+.detailModalBody {
+  min-height: 0;
+}
+
 .modalImage {
   width: 100%;
   max-height: 260px;
@@ -172,7 +186,7 @@
 }
 .modalVideo {
   width: 100%;
-  height: 320px;
+  height: min(42vh, 360px);
   border: 0;
   border-radius: 8px;
 }
@@ -222,7 +236,7 @@
 }
 .modalIframe {
   width: 100%;
-  height: 420px;
+  height: min(48vh, 420px);
   border: 0;
   display: block;
   background: #fff;
@@ -242,5 +256,15 @@
   }
   .headingH1 {
     font-size: 26px;
+  }
+  .modalVideo {
+    height: 42vh;
+    border-radius: 0;
+  }
+  .modalIframe {
+    height: 50vh;
+  }
+  .modalPlaceholder {
+    border-radius: 0;
   }
 }

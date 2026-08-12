@@ -7,16 +7,18 @@
     width: max-content;
     max-width: 130px;
     margin: 0 auto;
-    padding: 8px 8px;
-    cursor: pointer;
+    padding: 10px 8px;
+    cursor: default;
     color: #15153a;
-    border-radius: 8px;
+    border-radius: 10px;
     text-align: center;
+    border: 1px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
 }
 
 .card:hover {
-    color: #a00596;
-    box-shadow: 1px 1px 17px 5px #a00596;
-    -webkit-box-shadow: 1px 1px 17px 5px #a00596;
-    -moz-box-shadow: 1px 1px 17px 5px #a00596;
+    color: #15153a;
+    background: #f4f5fb;
+    border-color: #d8dcec;
+    transform: translateY(-2px);
 }

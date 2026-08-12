@@ -44,8 +44,7 @@ export const categories = [
     title: "Frontend",
     skills: [
       { name: "React.js", icon: <SiReact /> },
-      { name: "React 18", icon: <SiReact /> },
-      { name: "Next.js 13", icon: <SiNextdotjs /> },
+      { name: "Next.js", icon: <SiNextdotjs /> },
       { name: "TypeScript", icon: <SiTypescript /> },
       { name: "JavaScript (ES6+)", icon: <SiJavascript /> },
       { name: "HTML5", icon: <SiHtml5 /> },
@@ -110,7 +109,7 @@ export const categories = [
   {
     title: "UI & Charts",
     skills: [
-      { name: "MUI v5", icon: <SiMaterialui /> },
+      { name: "Material UI", icon: <SiMaterialui /> },
       { name: "Tailwind CSS", icon: <SiTailwindcss /> },
       { name: "Recharts", icon: <BsGraphUp /> },
       { name: "ECharts", icon: <BsBox /> },
@@ -134,7 +133,7 @@ export const categories = [
     title: "Testing",
     skills: [
       { name: "Jest", icon: <SiJest /> },
-      { name: "React Testing Library (RTL)", icon: <SiTestinglibrary /> },
+      { name: "Testing Library", icon: <SiTestinglibrary /> },
       { name: "Cypress", icon: <SiCypress /> },
     ],
   },
@@ -156,9 +155,9 @@ export const categories = [
       { name: "GitHub Copilot", icon: <SiGithub /> },
       { name: "Cursor", icon: <BsTools /> },
       { name: "OpenCode", icon: <BsBox /> },
-      { name: "claude code", icon: <BsBox /> },
-      { name: "codex", icon: <BsCode /> },
-      { name: "lovable", icon: <BsCloud /> },
+      { name: "Claude Code", icon: <BsBox /> },
+      { name: "Codex", icon: <BsCode /> },
+      { name: "Lovable", icon: <BsCloud /> },
     ],
   },
 ]

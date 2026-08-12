@@ -43,7 +43,7 @@
 .skillsGrid {
     display: grid;
     grid-template-columns: repeat(auto-fill, 105px);
-    justify-content: start;
+    justify-content: center;
     gap: 14px;
 }
 

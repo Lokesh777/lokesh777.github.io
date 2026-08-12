@@ -20,7 +20,7 @@ import {
 
 export const projects = [
   {
-    label: "AI Analytic Chatbot",
+    label: "AI Analytics Chatbot",
     img: "",
     git: "",
     link: "https://www.linkedin.com/feed/update/urn:li:activity:7330136949019635713/",
@@ -134,14 +134,14 @@ export const projects = [
   },
 
   {
-    label: "Exam Saathi",
+    label: "ExamSaathi AI",
     img: "",
     git: "https://github.com/Lokesh777/examshaathi-frontend_web",
     link: "https://examsaathiai.vercel.app/",
     video: "",
     accent: ["#0f2027", "#2c5364"],
     about:
-      "AI prep for Rajasthan CET — daily streak, shared topic banks, topic readiness quizzes, pattern-true mocks, old papers, and a Hindi/English AI Tutor.",
+      "AI exam prep platform for Rajasthan CET — daily streaks, topic banks, readiness quizzes, pattern-true mocks, and a Hindi/English AI Tutor.",
     full: [
       "Product surfaces: landing, topics (daily streak card + topic readiness), topic hub (generate bank Qs, create practice quizzes, manage bank), AI Tutor (topic-aware chat, language badge), mocks/old papers, and results with explanations.",
       "Frontend built with Next.js (App Router), React, TypeScript, Tailwind CSS, Lucide React icons, and TanStack Query.",
@@ -200,7 +200,7 @@ export const projects = [
     about:
       "AI-powered customer support dashboard with ticket management, AI ticket summaries, suggested replies, and sentiment analysis.",
     full: [
-      "Built as the ReeRoute Full Stack Engineering Assignment using Next.js 16 App Router, React 19, TypeScript, Tailwind CSS and shadcn/ui.",
+      "Built as a full-stack engineering challenge using Next.js 16 App Router, React 19, TypeScript, Tailwind CSS and shadcn/ui.",
       "Ticket management: view all tickets, search (debounced), filter by status/priority, sort, and a full ticket detail page.",
       "Update ticket status, internal notes, and an activity timeline for every ticket.",
       "AI features: AI ticket summary, AI suggested reply (editable before use), and AI sentiment analysis via Google Gemini 2.5 Flash.",
@@ -237,14 +237,14 @@ export const projects = [
   },
 
   {
-    label: "Interview Platform",
+    label: "SyncInterview",
     img: "",
     git: "https://github.com/Lokesh777/Interview-Platform",
     link: "https://interview-platform-seven-phi.vercel.app/",
     video: "",
     accent: ["#42275a", "#734b6d"],
     about:
-      "SyncInterview — a frontend-only AI interview platform UI with a complete hiring flow: profile setup, device checks, AI interview, coding round, and recruiter summary.",
+      "Frontend AI interview platform UI with a complete hiring flow: profile setup, device checks, AI interview, coding round, and recruiter summary.",
     full: [
       "Complete interview flow: Landing → Candidate → Setup → Interview → Coding → Summary.",
       "Real camera and microphone permission checks with live candidate camera preview during the interview.",
@@ -254,7 +254,7 @@ export const projects = [
       "Dark/light mode toggle with persisted preference, leave-screen warning, and auto-save/status indicators.",
       "Modern AI SaaS visual language with glass panels, gradients, and Framer Motion animations on shadcn/ui + Tailwind CSS 4.",
       "Performance: route-level code splitting, dynamic imports for heavy panels, skeleton loaders, route warmup, React.memo/useMemo, and system fonts.",
-      "Built for the frontend interview assignment — backend, database, auth, and real AI service intentionally excluded.",
+      "Built as a frontend interview challenge — backend, database, auth, and real AI service intentionally excluded.",
     ],
     company: false,
     companyLabel: "",
@@ -291,9 +291,9 @@ export const projects = [
     video: "",
     accent: ["#007A4D", "#004D33"],
     about:
-      "TopicsDubaiTx — Dubai property market app with transactions, market dashboard (TruEstimate™), off-plan launches, and agent search.",
+      "Dubai property market app with transactions, market dashboard (TruEstimate™), off-plan launches, and agent search.",
     full: [
-      "Next.js assignment inspired by Bayut's Dubai Transactions, New Projects, and Find my Agent surfaces; seeded dummy data only — no real DLD/Bayut API.",
+      "Next.js product demo inspired by Bayut-style Dubai Transactions, New Projects, and Find my Agent surfaces; seeded dummy data only — no real DLD/Bayut API.",
       "Routes: Dubai Transactions (filters, market summary metrics, Sales History table), TruEstimate™ market dashboard (ECharts trends, top areas), transaction detail + related deals, New Projects (off-plan list, ISR), and Find my Agent.",
       "Built with Next.js 16 App Router in plain JavaScript (no TypeScript), MUI v9, MUI X Data Grid, ECharts, and Emotion; charts loaded client-only via next/dynamic.",
       "Rendering: SSG for dashboard and detail pages, ISR (revalidate 3600) for new properties, server page + client filters for transactions.",
@@ -337,9 +337,9 @@ export const projects = [
     video: "",
     accent: ["#ff7e5f", "#feb47b"],
     about:
-      "ShopEasy — a mini e-commerce app with product listing, product detail with variants and stock states, a cart drawer, and localStorage cart persistence.",
+      "Mini e-commerce app with product listing, product detail with variants and stock states, a cart drawer, and localStorage cart persistence.",
     full: [
-      "Built for the frontend assignment using React 18, Vite, TypeScript, React Router, Context API, localStorage, and SCSS modules.",
+      "Built with React 18, Vite, TypeScript, React Router, Context API, localStorage, and SCSS modules.",
       "Product listing from the Fake Store API with a responsive grid and quick add to cart.",
       "Product detail page with image thumbnails, colour and size variants, stock states, quantity selection, and URL-driven selected variant state.",
       "Right-side cart drawer with item quantity controls, remove action, subtotal and grand total; cart persists in localStorage.",

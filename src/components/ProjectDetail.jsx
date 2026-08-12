@@ -37,12 +37,29 @@ export function ProjectDetail({ project, isOpen, onClose }) {
       : null;
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} isCentered size="xl" scrollBehavior="inside">
+    <Modal
+      isOpen={isOpen}
+      onClose={onClose}
+      isCentered
+      scrollBehavior="inside"
+      size="full"
+    >
       <ModalOverlay />
-      <ModalContent>
-        <ModalHeader pr={16}>{label}</ModalHeader>
+      <ModalContent
+        className={styles.detailModal}
+        w={{ base: "100vw", md: "70vw" }}
+        maxW={{ base: "100vw", md: "70vw" }}
+        h={{ base: "100vh", md: "80vh" }}
+        maxH={{ base: "100vh", md: "80vh" }}
+        m={{ base: 0, md: "auto" }}
+        borderRadius={{ base: 0, md: "12px" }}
+        overflow="hidden"
+        display="flex"
+        flexDirection="column"
+      >
+        <ModalHeader pr={16} flexShrink={0}>{label}</ModalHeader>
         <ModalCloseButton />
-        <ModalBody>
+        <ModalBody className={styles.detailModalBody} flex="1" overflowY="auto" pb={4}>
           <Stack spacing={4}>
             {isSideProject && demoPreviewUrl ? (
               <Box className={styles.previewBox}>
@@ -143,7 +160,7 @@ export function ProjectDetail({ project, isOpen, onClose }) {
             )}
           </Stack>
         </ModalBody>
-        <ModalFooter>
+        <ModalFooter flexShrink={0}>
           <Button onClick={onClose} size="sm">Close</Button>
         </ModalFooter>
       </ModalContent>
