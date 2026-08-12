@@ -1,9 +1,8 @@
 import { Text } from "@chakra-ui/react";
 import GitHubCalendar from "react-github-calendar";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../styles/Github.module.css";
 
-// Matches portfolio navy palette (#15153a family)
 const calendarTheme = {
   level0: "#eef0f8",
   level1: "#c5c9e8",
@@ -26,18 +25,124 @@ const STREAK_STATS_URL =
   "&sideNums=E0E0F6" +
   "&dates=B7B7D8";
 
-const TOP_LANGS_URL =
-  "https://github-readme-stats.vercel.app/api/top-langs/?username=Lokesh777" +
-  "&layout=compact" +
-  "&hide_border=true" +
-  "&title_color=CFCFF5" +
-  "&text_color=E0E0F6" +
-  "&bg_color=15153A" +
-  "&langs_count=8";
+const LANG_COLORS = {
+  JavaScript: "#f1e05a",
+  TypeScript: "#3178c6",
+  HTML: "#e34c26",
+  CSS: "#563d7c",
+  Python: "#3572A5",
+  Java: "#b07219",
+  "C++": "#f34b7d",
+  C: "#555555",
+  Shell: "#89e051",
+  SCSS: "#c6538c",
+  Vue: "#41b883",
+  Go: "#00ADD8",
+  Rust: "#dea584",
+  PHP: "#4F5D95",
+  Ruby: "#701516",
+  Kotlin: "#A97BFF",
+  Swift: "#F05138",
+  Dart: "#00B4AB",
+};
+
+function TopLanguagesCard({ username }) {
+  const [langs, setLangs] = useState([]);
+  const [status, setStatus] = useState("loading"); // loading | ready | error
+
+  useEffect(() => {
+    let cancelled = false;
+
+    async function loadLanguages() {
+      try {
+        setStatus("loading");
+        const res = await fetch(
+          `https://api.github.com/users/${username}/repos?per_page=100&type=owner&sort=updated`,
+          {
+            headers: {
+              Accept: "application/vnd.github+json",
+            },
+          }
+        );
+
+        if (!res.ok) throw new Error(`GitHub API ${res.status}`);
+        const repos = await res.json();
+        if (!Array.isArray(repos)) throw new Error("Invalid GitHub response");
+
+        const counts = {};
+        repos.forEach((repo) => {
+          if (repo.fork || !repo.language) return;
+          counts[repo.language] = (counts[repo.language] || 0) + 1;
+        });
+
+        const total = Object.values(counts).reduce((sum, n) => sum + n, 0);
+        const ranked = Object.entries(counts)
+          .map(([name, count]) => ({
+            name,
+            count,
+            pct: total ? Math.round((count / total) * 1000) / 10 : 0,
+            color: LANG_COLORS[name] || "#7a7fb8",
+          }))
+          .sort((a, b) => b.count - a.count)
+          .slice(0, 8);
+
+        if (cancelled) return;
+        if (ranked.length === 0) {
+          setStatus("error");
+          return;
+        }
+        setLangs(ranked);
+        setStatus("ready");
+      } catch (err) {
+        console.error("Top languages failed:", err);
+        if (!cancelled) setStatus("error");
+      }
+    }
+
+    loadLanguages();
+    return () => {
+      cancelled = true;
+    };
+  }, [username]);
+
+  if (status === "loading") {
+    return <div className={styles.langsCard}>Loading top languages…</div>;
+  }
+
+  if (status === "error") {
+    return (
+      <span className={styles.errorCard}>
+        Couldn&apos;t load top languages.{" "}
+        <a href={`https://github.com/${username}?tab=repositories`} target="_blank" rel="noreferrer">
+          View on GitHub
+        </a>
+      </span>
+    );
+  }
+
+  return (
+    <div className={styles.langsCard}>
+      <div className={styles.langsTitle}>Most Used Languages</div>
+      <div className={styles.langsList}>
+        {langs.map((lang) => (
+          <div key={lang.name} className={styles.langRow}>
+            <span className={styles.langName}>{lang.name}</span>
+            <div className={styles.langBarWrap}>
+              <div
+                className={styles.langBar}
+                style={{ width: `${Math.max(lang.pct, 4)}%`, background: lang.color }}
+              />
+            </div>
+            <span className={styles.langPct}>{lang.pct}%</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 const GithubStat = () => {
   const [streakError, setStreakError] = useState(false);
-  const [langsError, setLangsError] = useState(false);
 
   return (
     <div className={styles.gitBox} id="github">
@@ -84,7 +189,7 @@ const GithubStat = () => {
       </div>
 
       <div className={styles.statsRow}>
-        <div className={styles.Github}>
+        <div className={styles.statCard}>
           {streakError ? (
             <span className={styles.errorCard}>Couldn&apos;t load GitHub streak stats.</span>
           ) : (
@@ -96,17 +201,8 @@ const GithubStat = () => {
             />
           )}
         </div>
-        <div className={styles.Github}>
-          {langsError ? (
-            <span className={styles.errorCard}>Couldn&apos;t load top languages.</span>
-          ) : (
-            <img
-              className={styles.statImage}
-              src={TOP_LANGS_URL}
-              alt="Lokesh777 most used languages"
-              onError={() => setLangsError(true)}
-            />
-          )}
+        <div className={styles.statCard}>
+          <TopLanguagesCard username={USERNAME} />
         </div>
       </div>
     </div>

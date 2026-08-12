@@ -48,7 +48,7 @@
 }
 .badge {
   position: absolute;
-  top: 10px;
+  top: 6px;
   right: 0;
   z-index: 2;
   color: #fff;
@@ -184,12 +184,6 @@
   object-fit: cover;
   border-radius: 8px;
 }
-.modalVideo {
-  width: 100%;
-  height: min(42vh, 360px);
-  border: 0;
-  border-radius: 8px;
-}
 .modalPlaceholder {
   width: 100%;
   height: 220px;
@@ -201,45 +195,92 @@
   font-weight: 600;
 }
 
-/* Side-project live preview */
-.previewBox {
-  border: 1px solid #e2e8f0;
-  border-radius: 10px;
-  overflow: hidden;
-  background: #fff;
+/* Slim LCD / screen frame */
+.tvStage {
+  display: flex;
+  justify-content: center;
+  padding: 4px 2px;
 }
+
+.tvShell {
+  width: 100%;
+  max-width: 920px;
+}
+
+.tvBezel {
+  width: 100%;
+  background: #1a1a24;
+  border-radius: 10px;
+  padding: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 20px rgba(15, 15, 35, 0.18);
+}
+
 .previewBar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 14px;
-  background: #15153a;
-  color: #fff;
+  gap: 10px;
+  padding: 4px 4px 8px;
+  color: #d8d8e8;
 }
+
 .previewTitle {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #b7b7d0;
 }
+
 .previewOpen {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
   color: #15153a;
-  background: #fff;
-  padding: 4px 12px;
-  border-radius: 6px;
+  background: #eef0f8;
+  padding: 5px 12px;
+  border-radius: 999px;
   text-decoration: none;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  white-space: nowrap;
 }
+
 .previewOpen:hover {
-  background: #f3e8ff;
+  background: #ffffff;
+  transform: translateY(-1px);
 }
-.modalIframe {
+
+.tvScreen {
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #050508;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 0 14px rgba(80, 90, 180, 0.1);
+}
+
+.tvGlare {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    125deg,
+    rgba(255, 255, 255, 0.08) 0%,
+    rgba(255, 255, 255, 0.02) 18%,
+    transparent 38%
+  );
+  mix-blend-mode: soft-light;
+}
+
+.modalIframe,
+.modalVideo {
   width: 100%;
   height: min(48vh, 420px);
   border: 0;
   display: block;
-  background: #fff;
+  background: #0b0b12;
+  position: relative;
+  z-index: 0;
 }
 
 /* Dependencies */
@@ -257,12 +298,16 @@
   .headingH1 {
     font-size: 26px;
   }
-  .modalVideo {
-    height: 42vh;
-    border-radius: 0;
+  .tvStage {
+    padding: 0;
   }
-  .modalIframe {
-    height: 50vh;
+  .tvBezel {
+    border-radius: 8px;
+    padding: 5px;
+  }
+  .modalIframe,
+  .modalVideo {
+    height: 46vh;
   }
   .modalPlaceholder {
     border-radius: 0;

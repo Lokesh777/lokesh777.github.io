@@ -62,33 +62,49 @@ export function ProjectDetail({ project, isOpen, onClose }) {
         <ModalBody className={styles.detailModalBody} flex="1" overflowY="auto" pb={4}>
           <Stack spacing={4}>
             {isSideProject && demoPreviewUrl ? (
-              <Box className={styles.previewBox}>
-                <div className={styles.previewBar}>
-                  <span className={styles.previewTitle}>Live Preview</span>
-                  <a
-                    href={demoPreviewUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className={styles.previewOpen}
-                  >
-                    Open in new tab
-                  </a>
+              <div className={styles.tvStage}>
+                <div className={styles.tvShell}>
+                  <div className={styles.tvBezel}>
+                    <div className={styles.previewBar}>
+                      <span className={styles.previewTitle}>Live Preview</span>
+                      <a
+                        href={demoPreviewUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className={styles.previewOpen}
+                      >
+                        Open in new tab
+                      </a>
+                    </div>
+                    <div className={styles.tvScreen}>
+                      <iframe
+                        src={demoPreviewUrl}
+                        title={`${label} live preview`}
+                        className={styles.modalIframe}
+                        loading="lazy"
+                      />
+                      <div className={styles.tvGlare} aria-hidden="true" />
+                    </div>
+                  </div>
                 </div>
-                <iframe
-                  src={demoPreviewUrl}
-                  title={`${label} live preview`}
-                  className={styles.modalIframe}
-                  loading="lazy"
-                />
-              </Box>
+              </div>
             ) : video ? (
-              <iframe
-                src={video}
-                title={`${label} demo video`}
-                className={styles.modalVideo}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              />
+              <div className={styles.tvStage}>
+                <div className={styles.tvShell}>
+                  <div className={styles.tvBezel}>
+                    <div className={styles.tvScreen}>
+                      <iframe
+                        src={video}
+                        title={`${label} demo video`}
+                        className={styles.modalVideo}
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowFullScreen
+                      />
+                      <div className={styles.tvGlare} aria-hidden="true" />
+                    </div>
+                  </div>
+                </div>
+              </div>
             ) : img ? (
               <img src={img} alt={label} className={styles.modalImage} />
             ) : (

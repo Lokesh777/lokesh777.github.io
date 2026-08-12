@@ -94,7 +94,17 @@ export default function About() {
             <Button
               className={styles.downloadBtn}
               onClick={handleResumeClick}
-              leftIcon={<FaDownload color="#fff" />}
+              leftIcon={<FaDownload color="#ffffff" />}
+              bg="#15153a"
+              color="#ffffff"
+              _hover={{
+                bg: "#2a2a5a",
+                color: "#ffffff",
+                transform: "translateY(-2px)",
+                boxShadow: "0 8px 20px rgba(21, 21, 58, 0.35)",
+              }}
+              _active={{ bg: "#101028", color: "#ffffff" }}
+              _focus={{ boxShadow: "0 0 0 3px rgba(58, 58, 122, 0.35)" }}
             >
               Download Resume
             </Button>
