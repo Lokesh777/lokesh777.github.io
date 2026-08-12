@@ -74,7 +74,16 @@ export default function NavbarPage() {
           >
             <span className={styles.nav}>About</span>
           </Link>
-          <span className={styles.navStatic}>Skills</span>
+          <Link
+            to="skills"
+            smooth={true}
+            duration={1000}
+            activeClass={styles.active}
+            spy={true}
+            hashSpy={true}
+          >
+            <span className={styles.nav}>Skills</span>
+          </Link>
           <Link
             to="projects"
             smooth={true}
@@ -141,7 +150,17 @@ export default function NavbarPage() {
             >
               <div className={styles.nav}>About</div>
             </Link>
-            <div className={styles.navStatic}>Skills</div>
+            <Link
+              to="skills"
+              smooth={true}
+              duration={1000}
+              activeClass={styles.active}
+              spy={true}
+              onClick={onClose}
+              hashSpy={true}
+            >
+              <div className={styles.nav}>Skills</div>
+            </Link>
             <Link
               to="projects"
               smooth={true}

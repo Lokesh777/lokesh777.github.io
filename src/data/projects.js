@@ -151,6 +151,7 @@ export const projects = [
     ],
     company: false,
     companyLabel: "",
+    embed: false,
     stacks: [
       { name: "Next.js", icon: <SiNextdotjs /> },
       { name: "React", icon: <SiReact /> },

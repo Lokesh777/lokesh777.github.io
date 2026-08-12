@@ -8,8 +8,7 @@
     font-weight: 500;
     background-color: #15153a;
   }
-  .myLogo:hover {
-    animation: spin 2s linear infinite;
+  .myLogo {
     cursor: pointer;
   }
   
@@ -38,18 +37,4 @@
     opacity: 0.85;
     user-select: none;
   }
-  
-    /* Animation for smaller screen  */
-  @media only screen and (max-width: 768px) {
-    .myLogo {
-      animation: spin 2s linear infinite;
-      cursor: pointer;
-    }
-  }
-  
-    @keyframes spin {
-      100% {
-        transform: rotate(360deg);
-      }
-    }
     

@@ -20,7 +20,7 @@ import { StackTooltip } from "./StackTooltip";
 export function ProjectDetail({ project, isOpen, onClose }) {
   if (!project) return null;
 
-  const { label, img, link, git, video, about, full, demos, company, companyLabel, stacks, accent, dependencies } = project;
+  const { label, img, link, git, video, about, full, demos, company, companyLabel, stacks, accent, dependencies, embed } = project;
 
   const gradient = accent
     ? `linear-gradient(135deg, ${accent[0]} 0%, ${accent[1]} 100%)`
@@ -31,7 +31,10 @@ export function ProjectDetail({ project, isOpen, onClose }) {
   (demos || []).forEach((d) => demoLinks.push(d));
 
   const isSideProject = !company;
-  const demoPreviewUrl = isSideProject && demoLinks.length > 0 ? demoLinks[0].url : null;
+  const demoPreviewUrl =
+    isSideProject && demoLinks.length > 0 && embed !== false
+      ? demoLinks[0].url
+      : null;
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} isCentered size="xl" scrollBehavior="inside">
