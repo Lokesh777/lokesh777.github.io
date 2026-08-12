@@ -32,6 +32,28 @@
   color: #eef0ff;
   margin: 0;
   box-sizing: border-box;
+  text-decoration: none;
+  border-radius: 8px;
+}
+
+.infoBtn:hover {
+  border-color: #c4b5fd;
+}
+
+.socialLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.socialLink:hover {
+  background: #ffffff;
+  color: #15153a;
 }
 
 .formCard {

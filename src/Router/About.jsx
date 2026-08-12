@@ -1,5 +1,5 @@
 import styles from "../styles/About.module.css";
-import { Button, Flex, Text } from "@chakra-ui/react";
+import { Flex, Text } from "@chakra-ui/react";
 import { FaDownload } from "react-icons/fa";
 import React from "react";
 
@@ -8,19 +8,6 @@ const RESUME_VIEW_URL = `https://drive.google.com/file/d/${RESUME_FILE_ID}/view`
 const RESUME_DOWNLOAD_URL = `https://drive.google.com/uc?export=download&id=${RESUME_FILE_ID}`;
 
 export default function About() {
-  const handleResumeClick = () => {
-    // Open for quick review, and trigger a download in the same click.
-    window.open(RESUME_VIEW_URL, "_blank", "noopener,noreferrer");
-
-    const link = document.createElement("a");
-    link.href = RESUME_DOWNLOAD_URL;
-    link.setAttribute("download", "Lokesh_Kumar_Bairwa_Resume.pdf");
-    link.rel = "noopener noreferrer";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
   const stats = [
     { value: "3+", label: "Years Experience" },
     { value: "50+", label: "REST APIs Built" },
@@ -95,23 +82,16 @@ export default function About() {
           </div>
 
           <Flex className={styles.resumeDownload} alignItems="center">
-            <Button
+            <a
               className={styles.downloadBtn}
-              onClick={handleResumeClick}
-              leftIcon={<FaDownload color="#ffffff" />}
-              bg="#15153a"
-              color="#ffffff"
-              _hover={{
-                bg: "#2a2a5a",
-                color: "#ffffff",
-                transform: "translateY(-2px)",
-                boxShadow: "0 8px 20px rgba(21, 21, 58, 0.35)",
+              href={RESUME_DOWNLOAD_URL}
+              onClick={() => {
+                window.open(RESUME_VIEW_URL, "_blank", "noopener,noreferrer");
               }}
-              _active={{ bg: "#101028", color: "#ffffff" }}
-              _focus={{ boxShadow: "0 0 0 3px rgba(58, 58, 122, 0.35)" }}
             >
+              <FaDownload aria-hidden="true" focusable="false" />
               Download Resume
-            </Button>
+            </a>
             <span className={styles.resumeHint}>Opens preview and downloads PDF</span>
           </Flex>
         </div>

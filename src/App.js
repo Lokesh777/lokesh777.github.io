@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, lazy, useEffect } from "react";
 import "./App.css";
 import Home from "./components/HomePage";
 import NavbarPage from "./components/Navbar";
@@ -18,6 +18,28 @@ function SectionFallback() {
 }
 
 function App() {
+  useEffect(() => {
+    const fixA11y = () => {
+      document.querySelectorAll('[id^="chakra-toast-manager"]').forEach((node) => {
+        node.setAttribute("aria-hidden", "true");
+        node.removeAttribute("role");
+      });
+      document.querySelectorAll("img:not([alt])").forEach((img) => {
+        img.setAttribute("alt", "");
+      });
+      document.querySelectorAll('svg[role="img"]:not([aria-label]):not([aria-labelledby])').forEach((svg) => {
+        svg.setAttribute("aria-hidden", "true");
+        svg.setAttribute("focusable", "false");
+        svg.setAttribute("role", "presentation");
+      });
+    };
+
+    fixA11y();
+    const observer = new MutationObserver(fixA11y);
+    observer.observe(document.body, { childList: true, subtree: true });
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="App">
       <a href="#main-content" className="skipLink">

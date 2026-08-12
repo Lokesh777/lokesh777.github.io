@@ -23,7 +23,13 @@ function CategorySection({ category }) {
           <SkillCard
             key={skill.name}
             skill={skill.name}
-            icon={cloneElement(skill.icon, { className: styles.skillIcon })}
+            icon={cloneElement(skill.icon, {
+              className: styles.skillIcon,
+              "aria-hidden": true,
+              focusable: "false",
+              role: "presentation",
+              title: undefined,
+            })}
           />
         ))}
       </ul>
@@ -93,7 +99,7 @@ export function SkillsSection() {
             />
           )}
           <div ref={scrollRef} className={styles.tabScrollInner}>
-            <TabList className={styles.tabList}>
+            <TabList as="div" className={styles.tabList}>
               {categories.map((category) => (
                 <Tab key={category.title} {...tabStyle} className={styles.tab}>
                   {category.title}

@@ -130,25 +130,32 @@
   }
 
   .downloadBtn {
-    background: #15153a !important;
-    color: #ffffff !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: #15153a;
+    color: #ffffff;
     height: 44px;
     padding: 0 22px;
     border-radius: 8px;
     border: 1px solid #15153a;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
     transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
   }
 
-  .downloadBtn span,
   .downloadBtn svg {
-    color: #ffffff !important;
+    color: #ffffff;
+    fill: #ffffff;
   }
 
   .downloadBtn:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(21, 21, 58, 0.35);
-    background: #2a2a5a !important;
-    color: #ffffff !important;
+    background: #2a2a5a;
+    color: #ffffff;
   }
 
   @media only screen and (max-width: 900px) {

@@ -4,7 +4,6 @@ import {
   Box,
   Heading,
   Text,
-  IconButton,
   Button,
   VStack,
   HStack,
@@ -142,79 +141,51 @@ export default function ContactForm() {
             <div className={styles.contactGrid}>
               <Box className={styles.contactInfo}>
                 <Heading as="h2" size={{ base: "lg", md: "xl" }}>Contact</Heading>
-                <Text mt={3} color="whiteAlpha.800" fontSize={{ base: "sm", md: "md" }}>
+                <Text mt={3} color="#EEF0FF" fontSize={{ base: "sm", md: "md" }}>
                   Fill up the form below to get in touch.
                 </Text>
 
                 <VStack mt={6} spacing={3} alignItems={{ base: "center", md: "flex-start" }} w="100%">
-                  <Button
-                    as="a"
-                    href="tel:+917065667959"
-                    className={styles.infoBtn}
-                    variant="ghost"
-                    color="#EEF0FF"
-                    leftIcon={<MdPhone color="#EEF0FF" size="20px" aria-hidden="true" />}
-                    _hover={{ border: "2px solid #c4b5fd", bg: "transparent" }}
-                    aria-label="Call +91 7065667959"
-                  >
+                  <a href="tel:+917065667959" className={styles.infoBtn}>
+                    <MdPhone color="#EEF0FF" size="20px" aria-hidden="true" focusable="false" />
                     +91-7065667959
-                  </Button>
-                  <Button
-                    as="a"
-                    href="mailto:lokeshdevgan777@gmail.com"
-                    className={styles.infoBtn}
-                    variant="ghost"
-                    color="#EEF0FF"
-                    leftIcon={<MdEmail color="#EEF0FF" size="20px" aria-hidden="true" />}
-                    _hover={{ border: "2px solid #c4b5fd", bg: "transparent" }}
-                    aria-label="Email address lokeshdevgan777@gmail.com"
-                  >
+                  </a>
+                  <a href="mailto:lokeshdevgan777@gmail.com" className={styles.infoBtn}>
+                    <MdEmail color="#EEF0FF" size="20px" aria-hidden="true" focusable="false" />
                     lokeshdevgan777@gmail.com
-                  </Button>
-                  <p className={styles.infoBtn} aria-label="Location: Bundi, Rajasthan, India">
-                    <MdLocationOn color="#EEF0FF" size="20px" aria-hidden="true" />
+                  </a>
+                  <p className={styles.infoBtn}>
+                    <MdLocationOn color="#EEF0FF" size="20px" aria-hidden="true" focusable="false" />
                     <span>Bundi, Rajasthan, India</span>
                   </p>
                 </VStack>
 
                 <HStack mt={8} spacing={4} justify={{ base: "center", md: "flex-start" }}>
-                  <IconButton
-                    as="a"
+                  <a
+                    className={styles.socialLink}
                     href="https://github.com/Lokesh777"
                     target="_blank"
                     rel="noreferrer"
                     aria-label="Visit Lokesh Kumar on GitHub"
-                    variant="ghost"
-                    size="lg"
-                    isRound
-                    color="white"
-                    _hover={{ bg: "white", color: "#15153a" }}
-                    icon={<BsGithub size="28px" aria-hidden="true" focusable="false" />}
-                  />
-                  <IconButton
-                    as="a"
+                  >
+                    <BsGithub size="28px" aria-hidden="true" focusable="false" />
+                  </a>
+                  <a
+                    className={styles.socialLink}
                     href="mailto:lokeshdevgan777@gmail.com"
                     aria-label="Send email to lokeshdevgan777@gmail.com"
-                    variant="ghost"
-                    size="lg"
-                    isRound
-                    color="white"
-                    _hover={{ bg: "white", color: "#15153a" }}
-                    icon={<MdEmail size="28px" aria-hidden="true" focusable="false" />}
-                  />
-                  <IconButton
-                    as="a"
+                  >
+                    <MdEmail size="28px" aria-hidden="true" focusable="false" />
+                  </a>
+                  <a
+                    className={styles.socialLink}
                     href="https://www.linkedin.com/in/lokeshkumar777/"
                     target="_blank"
                     rel="noreferrer"
                     aria-label="Visit Lokesh Kumar on LinkedIn"
-                    variant="ghost"
-                    size="lg"
-                    isRound
-                    color="white"
-                    _hover={{ bg: "white", color: "#15153a" }}
-                    icon={<BsLinkedin size="26px" aria-hidden="true" focusable="false" />}
-                  />
+                  >
+                    <BsLinkedin size="26px" aria-hidden="true" focusable="false" />
+                  </a>
                 </HStack>
               </Box>
 

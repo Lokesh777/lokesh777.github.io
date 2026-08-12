@@ -23,6 +23,15 @@ main#main-content {
   display: block;
 }
 
+#home,
+#about,
+#skills,
+#projects,
+#github,
+#contact {
+  scroll-margin-top: 5rem;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

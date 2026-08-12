@@ -1,4 +1,3 @@
-import { Button } from '@chakra-ui/react';
 import '../App.css';
 import '../styles/HeroSection.css';
 import React, { useEffect, useState } from 'react';
@@ -66,28 +65,12 @@ function Home() {
         </p>
 
         <div className='hero-cta'>
-          <Button
-            as='a'
-            href='#contact'
-            className='btn-primary'
-            bg='#ffffff'
-            color='#15153a'
-            _hover={{ bg: '#efe8ff', transform: 'translateY(-2px)' }}
-          >
+          <a href='#contact' className='btn-primary'>
             CONTACT ME
-          </Button>
-          <Button
-            as='a'
-            href='#projects'
-            className='btn-outline'
-            variant='outline'
-            bg='transparent'
-            color='#ffffff'
-            borderColor='#ffffff'
-            _hover={{ bg: '#ffffff', color: '#15153a', transform: 'translateY(-2px)' }}
-          >
+          </a>
+          <a href='#projects' className='btn-outline'>
             VIEW MY WORK
-          </Button>
+          </a>
         </div>
       </div>
     </div>

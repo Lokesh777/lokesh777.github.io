@@ -205,7 +205,7 @@ const GithubStat = () => {
             </a>
           </div>
 
-          <div className={styles.Github} role="img" aria-label="GitHub contribution calendar for Lokesh777">
+          <div className={styles.Github}>
             <GitHubCalendar
               username={USERNAME}
               blockSize={13}

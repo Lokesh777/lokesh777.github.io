@@ -112,9 +112,14 @@ video {
 .btn-outline {
     min-width: 170px;
     height: 46px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     font-weight: 600;
     letter-spacing: 0.04em;
     border-radius: 8px;
+    text-decoration: none;
+    box-sizing: border-box;
     transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 

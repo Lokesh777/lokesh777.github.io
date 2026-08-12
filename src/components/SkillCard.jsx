@@ -1,4 +1,3 @@
-import { Box, Text } from "@chakra-ui/react";
 import styles from "../styles/Skill/SkillCard.module.css";
 import { cloneElement } from "react";
 
@@ -8,16 +7,14 @@ export function SkillCard({ skill, icon }) {
         "aria-hidden": true,
         focusable: "false",
         role: "presentation",
-        className: [icon.props?.className, styles.skillIconInline].filter(Boolean).join(" "),
+        title: undefined,
       })
     : null;
 
   return (
-    <Box className={styles.card} as="li">
+    <li className={styles.card}>
       {safeIcon}
-      <Text fontWeight="bold" fontSize={{ base: "11px", md: "xs" }} textAlign="center">
-        {skill}
-      </Text>
-    </Box>
+      <span className={styles.skillName}>{skill}</span>
+    </li>
   );
 }

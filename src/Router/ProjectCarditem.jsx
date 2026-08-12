@@ -17,13 +17,6 @@ export function ProjectCard({ label, img, git, link, stacks, about, accent, vide
       <div
         className={styles.cardHeader}
         onClick={onDetails}
-        onKeyDown={(e) => {
-          if (e.key === "Enter" || e.key === " ") {
-            e.preventDefault();
-            onDetails();
-          }
-        }}
-        role="presentation"
       >
         {video ? (
           <iframe
@@ -37,7 +30,7 @@ export function ProjectCard({ label, img, git, link, stacks, about, accent, vide
         ) : img ? (
           <img
             src={img}
-            alt=""
+            alt={`${label} project preview`}
             className={styles.cardImage}
             width={640}
             height={360}

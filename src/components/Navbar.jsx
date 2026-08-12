@@ -1,4 +1,3 @@
-import { Link as ScrollLink } from "react-scroll";
 import {
   Box,
   Flex,
@@ -19,25 +18,6 @@ const NAV_ITEMS = [
   { to: "contact", label: "Contact" },
 ];
 
-function NavScrollLink({ to, children, onClick, className, "aria-label": ariaLabel }) {
-  return (
-    <ScrollLink
-      to={to}
-      href={`#${to}`}
-      smooth
-      duration={600}
-      spy
-      hashSpy
-      activeClass={styles.active}
-      onClick={onClick}
-      className={className}
-      aria-label={ariaLabel}
-    >
-      {children}
-    </ScrollLink>
-  );
-}
-
 export default function NavbarPage() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -57,22 +37,17 @@ export default function NavbarPage() {
           onClick={isOpen ? onClose : onOpen}
         />
 
-        <NavScrollLink
-          to="home"
-          className={styles.logoLink}
-          aria-label="Lokesh Kumar Bairwa home"
-        >
+        <a href="#home" className={styles.logoLink}>
           <img
             src={`${process.env.PUBLIC_URL}/L.jpg`}
-            alt=""
+            alt="Lokesh Kumar Bairwa"
             width={48}
             height={48}
             className={styles.myLogo}
             fetchpriority="high"
             decoding="async"
           />
-          <span className={styles.srOnly}>Lokesh Kumar Bairwa — Home</span>
-        </NavScrollLink>
+        </a>
 
         <HStack
           as="nav"
@@ -81,9 +56,9 @@ export default function NavbarPage() {
           aria-label="Primary"
         >
           {NAV_ITEMS.map(({ to, label }) => (
-            <NavScrollLink key={to} to={to}>
-              <span className={styles.nav}>{label}</span>
-            </NavScrollLink>
+            <a key={to} href={`#${to}`} className={styles.nav}>
+              {label}
+            </a>
           ))}
           <a
             href="https://drive.google.com/file/d/1WKsjg8wV1jZVTg3h7JXUn3GX_XkJSU52/view"
@@ -100,9 +75,9 @@ export default function NavbarPage() {
         <Box bg="#15153a" pb={4} display={{ md: "none" }} as="nav" aria-label="Mobile">
           <Stack spacing={4}>
             {NAV_ITEMS.map(({ to, label }) => (
-              <NavScrollLink key={to} to={to} onClick={onClose}>
-                <span className={styles.nav}>{label}</span>
-              </NavScrollLink>
+              <a key={to} href={`#${to}`} className={styles.nav} onClick={onClose}>
+                {label}
+              </a>
             ))}
             <a
               href="https://drive.google.com/file/d/1WKsjg8wV1jZVTg3h7JXUn3GX_XkJSU52/view"
